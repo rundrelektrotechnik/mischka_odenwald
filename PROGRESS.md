@@ -6,16 +6,17 @@ Update it before a session ends — see "Session protocol" in `agents.md`.
 
 ## Current phase
 
-**Phase 1 — Setup: documentation only.** No code, no site, no dependencies yet.
+**Phase 1 — Setup: stack choice open, no code yet.** Docs are done and committed.
 Last updated: 2026-11-04
 
 ## Next step
 
-1. **Ask the human for the hosting target** (Strato / Jimdo / Squarespace). This decides
-   static site vs. CMS and closes Milestone 1. ← blocking
-2. Ask what `fuzzy-circle-1.png` and `fuzzy-circle-2.png` actually show; rename them if the
-   current names are wrong (AI cannot see images).
-3. Then start Milestone 2 (content decisions): prices, characters, contact channel.
+1. **Pick the stack** (plain HTML/CSS/JS vs. a build tool) — nothing gets added without the
+   human's OK, per `agents.md`. ← blocking Milestone 1
+2. Then Milestone 2 (content decisions): which prices become public, character names,
+   contact channel, Impressum details.
+3. Upload target (Strato file space vs. Squarespace) is still open; it only matters at
+   Milestone 9 (Deploy). A static build works on any of them.
 
 ## Milestones
 
@@ -35,6 +36,17 @@ rewriting the list.
 
 ## Decisions log (append-only, newest first)
 
+- 2026-11-04 — Hosting approach decided: **self-built static site, no CMS**. The upload target
+  (Strato / Squarespace / Jimdo) stays open until Milestone 9 — a static build runs on any of
+  them, so the Russian switch must work without a CMS.
+- 2026-11-04 — `fuzzy-circle-1.png` / `fuzzy-circle-2.png` confirmed by the human: ball-like
+  circles with fuzzy edges, probably meant for juggling pictures. **Not used for now**, names
+  stay as they are.
+- 2026-11-04 — `Preise - mischka.xlsx` inspected: balloon bouquet prices (3/5/7 Blumen),
+  `Auftritt Standard` (price omitted) for the core city (Michelstadt/Erbach), music for 3 songs
+  (15-25 min), add-ons (extra music, extra song, photo time, text modules, games, soap
+  bubbles), Anfahrt per km (rate omitted) — plus one optional adult-oriented item.
+  **Nothing may be published before the human confirms** what is public and still current.
 - 2026-11-04 — Milestone sequence set as above, but explicitly agile: a new insight may
   reorder or add steps; the change gets logged here rather than editing the list quietly.
 - 2026-11-04 — Progress lives in this file plus "Session protocol" in `agents.md`, not inside
@@ -57,11 +69,16 @@ rewriting the list.
 
 Mirrors `project.md` → "Offene Punkte":
 
+- [ ] 0. Stack choice: plain HTML/CSS/JS with no build step, or a build tool ← closes
+    Milestone 1. Nothing may be added without the human's OK.
 - [ ] 1. Impressum details: company name, address, e-mail/phone
 - [ ] 2. Extra costume characters: their names, and when their assets arrive
-- [ ] 3. Which prices/packages from `Preise - mischka.xlsx` may become public
+- [ ] 3. Which prices/packages from `Preise - mischka.xlsx` may become public, and whether
+    they are still current — including the adult-oriented optional item, which does not
+    obviously belong on a children's party page
 - [ ] 4. Contact channel: form, phone, e-mail, messenger?
-- [ ] 5. Hosting target ← needed to close Milestone 1
+- [ ] 5. Upload target: Strato file space, Squarespace or Jimdo — only needed at Milestone 9
+      (the site itself is built as a static site, that is decided)
 - [ ] 6. Russian switch: whole main page, or selected texts only?
 - [ ] 7. References, testimonials, venues — do they exist?
 - [ ] 8. Cookie banner, analytics, image rights beyond DSGVO
@@ -71,8 +88,9 @@ Mirrors `project.md` → "Offene Punkte":
 - The repo had **zero commits until 2026-11-04**; nothing was pushed, no remote assumed.
 - `customer-assets/customer-data.txt` contains real hosting passwords. Never open it. Check
   `git status` whenever staging anything from `customer-assets/`.
-- Asset names in `project.md` are filename guesses, not verified content — some may mislead,
-  especially `fuzzy-circle-1.png` / `fuzzy-circle-2.png`. Confirm with the human before use.
+- Asset names in `project.md` are filename guesses, not verified content. `fuzzy-circle-1/2`
+  are confirmed decorative balls and stay unused. Anything else still needs a human check
+  before use.
 - No frameworks, libraries or dependencies without asking first (see `agents.md`).
 - `customer-assets/figure-cheburashka-2.PNG` has an uppercase extension — keep that in mind
   for URLs and build scripts once files are served, on case-sensitive servers.

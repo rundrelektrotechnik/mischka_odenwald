@@ -44,6 +44,8 @@ mittragen, ohne diese Figuren heute schon zu benennen oder zu erfinden.
   `figure-panda-blackwhite-*`, `figure-minecraft-guy-*`
 - **Hintergründe/Platten:** `background-plate-*`, `background-gradient.png`,
   `background-yellow-with-questionmark.jpg`, `fuzzy-circle-1.png`, `fuzzy-circle-2.png`
+  (die beiden „fuzzy circle“-Dateien sind dekorative Ball-Motive mit weichem Rand – laut
+  Kunde vermutlich für Jonglier-Motive gedacht, für die Webseite derzeit nicht verwendet)
 - **Akzente:** `*-paint-stroke-*.png` (gelb, blau, gold)
 - **Symbole:** `megaphone-green.png`, `megaphone-blue.png`, `icon-heart-*`, `heart-green.png`,
   `circle-instagram-logo.png`, `icon-skype-black.png`
@@ -74,8 +76,9 @@ mittragen, ohne diese Figuren heute schon zu benennen oder zu erfinden.
    dafür kommt später.
 3. Preise aus `Preise - mischka.xlsx`: welche Pakete sollen öffentlich werden?
 4. Wie gebucht oder kontaktiert wird: Formular, Telefon, E-Mail, Messenger?
-5. Wo die Seite später liegt (Strato, Jimdo, Squarespace – nur Zugang vorhanden,
-   Entscheidung offen).
+5. Wo die Seite hochgeladen wird (Strato, Jimdo, Squarespace – nur Zugang vorhanden,
+   Entscheidung offen). **Entstanden wird eine statische Seite ohne CMS**, das läuft auf
+   jedem dieser Ziele.
 6. Gilt der Russisch-Umschalter für die ganze Hauptseite oder nur für ausgewählte Texte?
 7. Referenzen, Kundenstimmen, Auftrittsorte – vorhanden oder nicht?
 8. Rechtlicher Rahmen über DSGVO hinaus (Cookie-Banner, Analytics?) und Bildrechte
