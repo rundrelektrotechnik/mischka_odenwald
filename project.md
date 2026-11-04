@@ -14,12 +14,28 @@ Neben Mischka gibt es weitere verkleidete Figuren/Charaktere. Für sie fehlt der
 gutes Bildmaterial; es wird später ergänzt. Die Webseite soll das von Anfang an
 mittragen, ohne diese Figuren heute schon zu benennen oder zu erfinden.
 
+## Für wen die Party ist
+
+- **Kinder- und Geburtstagsfeiern** mit kinderfreundlichen Kostümen – das ist der
+  Hauptfall.
+- **Feiern für Erwachsene** gibt es ebenfalls: eher erwachsene Themen, aber immer noch
+  recht „unschuldig“ – im Kern Tanzen. Beide Zielgruppen sollen auf der Seite sichtbar
+  sein, getrennt und klar zuordenbar.
+- Wie der Erwachsenenteil präsentiert wird (eigener Abschnitt, Formulierung, ob einzelne
+  Zusatzangebote aus der Preisliste namentlich genannt werden), ist noch offen.
+
 ## Umfang der Webseite
 
 - **Eine Hauptseite** (Single Page), die das Angebot karnevalistisch/zirkusartig präsentiert.
 - **Impressum** und **Datenschutz** als eigene, rechtlich notwendige Seiten.
 - Mehr ist nicht geplant: kein Blog, kein Shop, kein Buchungssystem – nur Kontakt und
   Buchungsanfrage.
+
+## Preise
+
+- **Es werden keine Preise veröffentlicht.** Auf der Seite steht nur „Preis auf Anfrage“.
+- Sichtbar sein darf das **Angebot selbst** (was gebucht werden kann), ohne Zahlen. Der
+  Umfang der Angebotsliste ist noch zu bestätigen.
 
 ## Sprachen
 
@@ -74,7 +90,11 @@ mittragen, ohne diese Figuren heute schon zu benennen oder zu erfinden.
 1. Vollständiger Name/Firma und Anschrift für das Impressum, sowie E-Mail/Telefon.
 2. Welche weiteren Kostümfiguren zum Angebot gehören und wie sie heißen; Bildmaterial
    dafür kommt später.
-3. Preise aus `Preise - mischka.xlsx`: welche Pakete sollen öffentlich werden?
+3. Angebotsliste: welche Leistungspunkte sind öffentlich sichtbar (ohne Preise, diese sind
+   „auf Anfrage“)? Gehören erwachsene Zusatzangebote wie „Stas Striptease“/„Sex Bomb“ dazu,
+   oder bleiben sie außerhalb der Webseite?
+3a. Wie der Erwachsenenteil sprachlich eingefangen wird – eigener Abschnitt, Formulierung,
+   Reihenfolge.
 4. Wie gebucht oder kontaktiert wird: Formular, Telefon, E-Mail, Messenger?
 5. Wo die Seite hochgeladen wird (Strato, Jimdo, Squarespace – nur Zugang vorhanden,
    Entscheidung offen). **Entstanden wird eine statische Seite ohne CMS**, das läuft auf
