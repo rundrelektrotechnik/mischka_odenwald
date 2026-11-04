@@ -1,0 +1,21 @@
+# Customer credentials — must never be committed
+customer-assets/customer-data.txt
+
+# Local environment / secrets
+.env
+.env.*
+*.local
+
+# Build output and dependencies (adjust once the stack is chosen)
+node_modules/
+dist/
+build/
+.cache/
+
+# Logs
+*.log
+
+# OS / editor noise
+.DS_Store
+Thumbs.db
+desktop.ini
