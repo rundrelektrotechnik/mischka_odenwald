@@ -45,6 +45,9 @@ rewriting the list.
   committed; `.gitignore` keeps it untracked.
 - 2026-11-04 — Renamed misspelled assets: `fuzzy-circly-1.png` → `fuzzy-circle-1.png`,
   `bacground-yellow-with-questionmark.jpg` → `background-yellow-with-questionmark.jpg`.
+- 2026-11-04 — Repo history started with two commits: `fa446e1` (docs), `95bf819`
+  (customer assets as read-only source material). Branch is still `master`; rename to `main`
+  if wanted, but no remote exists yet.
 - 2026-11-04 — Docs split into two root files: `agents.md` (English rules) + `project.md`
   (German facts), rather than one combined doc or a `docs/` folder.
 - 2026-11-04 — AI cannot read images: never attempt image vision. Ask the human what an image
@@ -76,5 +79,6 @@ Mirrors `project.md` → "Offene Punkte":
 
 ## Done
 
-- 2026-11-04 — `project.md` (German), `agents.md` (English), `.gitignore`, asset renames,
-  `PROGRESS.md`, session protocol section in `agents.md`, first commit.
+- 2026-11-04 — `project.md` (German), `agents.md` (English incl. session protocol),
+  `PROGRESS.md`, `.gitignore`, asset renames, asset inventory corrected against the real
+  filenames, initial commits `fa446e1` + `95bf819`.
