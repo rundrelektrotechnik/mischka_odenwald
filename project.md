@@ -85,21 +85,26 @@ mittragen, ohne diese Figuren heute schon zu benennen oder zu erfinden.
 - Keine erfundenen Leistungsangebote, Preise oder Kontaktdaten.
 - Keine halbfertigen Figuren-Profile, nur weil ein Dateiname sie vermuten lässt.
 
-## Offene Punkte (zu klären, noch nicht entschieden)
+## Offene Punkte (noch zu klären – beantwortete sind markiert)
 
-1. Vollständiger Name/Firma und Anschrift für das Impressum, sowie E-Mail/Telefon.
+Entscheidungen stehen außerdem in `PROGRESS.md` (Decisions log).
+
+1. Vollständiger Name/Firma und Anschrift für das Impressum, sowie die **tatsächliche**
+   E-Mail-Adresse und Telefonnummer. **Vorläufig: Platzhalter, klar markiert.**
 2. Welche weiteren Kostümfiguren zum Angebot gehören und wie sie heißen; Bildmaterial
    dafür kommt später.
 3. Angebotsliste: welche Leistungspunkte sind öffentlich sichtbar (ohne Preise, diese sind
-   „auf Anfrage“)? Gehören erwachsene Zusatzangebote wie „Stas Striptease“/„Sex Bomb“ dazu,
-   oder bleiben sie außerhalb der Webseite?
-3a. Wie der Erwachsenenteil sprachlich eingefangen wird – eigener Abschnitt, Formulierung,
-   Reihenfolge.
-4. Wie gebucht oder kontaktiert wird: Formular, Telefon, E-Mail, Messenger?
-5. Wo die Seite hochgeladen wird (Strato, Jimdo, Squarespace – nur Zugang vorhanden,
+   „auf Anfrage“)?
+4. ~~Erwachsene Zusatzangebote wie „Stas Striptease“/„Sex Bomb“ – auf der Seite sichtbar?~~
+   **Entschieden: nein.** Der Erwachsenenteil erscheint als **ein neutraler Satz, ohne Liste**;
+   offene Fragen sind nur die Formulierung und die Reihenfolge.
+5. ~~Wie gebucht oder kontaktiert wird?~~ **Entschieden: E-Mail-Link + Telefonnummer, kein
+   Formular, kein Drittanbieter, kein Serverskript.** Die echten Werte fehlen noch.
+6. Wo die Seite hochgeladen wird (Strato, Jimdo, Squarespace – nur Zugang vorhanden,
    Entscheidung offen). **Entstanden wird eine statische Seite ohne CMS**, das läuft auf
    jedem dieser Ziele.
-6. Gilt der Russisch-Umschalter für die ganze Hauptseite oder nur für ausgewählte Texte?
-7. Referenzen, Kundenstimmen, Auftrittsorte – vorhanden oder nicht?
-8. Rechtlicher Rahmen über DSGVO hinaus (Cookie-Banner, Analytics?) und Bildrechte
+7. ~~Gilt der Russisch-Umschalter für die ganze Hauptseite?~~ **Entschieden: ja, ganze
+   Hauptseite;** Impressum und Datenschutz bleiben Deutsch mit einem Hinweis.
+8. Referenzen, Kundenstimmen, Auftrittsorte – vorhanden oder nicht?
+9. Rechtlicher Rahmen über DSGVO hinaus (Cookie-Banner, Analytics?) und Bildrechte
    an den Kundenfotos.

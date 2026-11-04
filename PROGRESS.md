@@ -6,18 +6,21 @@ Update it before a session ends — see "Session protocol" in `agents.md`.
 
 ## Current phase
 
-**Phase 2 — Content decisions.** Setup is closed: static site, plain HTML/CSS/JS, no build
-step, no dependencies. Still no site code yet.
+**Phase 2 — Content decisions: answered, no site code written yet.** Setup is closed
+(static site, plain HTML/CSS/JS, no build step, no dependencies). The four content questions
+below were answered by the human. Nothing has been created in the working tree besides docs.
 Last updated: 2026-11-04
 
 ## Next step
 
-1. **Collect the content facts from the human** (Milestone 2) — see "Open blockers" below:
-   Impressum details, contact channel, character names, Russian switch scope. ← blocking
-2. Then Milestone 3: one `index.html` + `style.css` + a small `script.js` for the language
-   switch, and the two legal pages. **Nothing is installed, no build step.**
-3. Upload target (Strato / Squarespace / Jimdo) stays open until Milestone 9; the static
-   folder works on any of them.
+1. **Write the first files** (Milestone 3 + 4): `index.html` (German), `index.ru.html` (later),
+   `assets/css/style.css`, `assets/js/site.js` — plus `impressum.html` and `datenschutz.html`.
+   Nothing is installed, no build step.
+2. **Values still missing, use marked placeholders:** real e-mail address and phone number, and
+   the Impressum name/address — all of it is blocker 1. Costume figure names are blocker 2;
+   until they are answered the page says "weitere Figuren kommen".
+3. Milestone 5 (Russian copy), 6 (legal pages), 7 (look — needs answers about what each image
+   shows), 8 (accessibility). Upload target stays open until Milestone 9.
 
 ## Milestones
 
@@ -27,8 +30,9 @@ rewriting the list.
 
 - [x] 1. Setup: repo, docs, hosting approach, stack decision — **done** (upload target is
       only needed at Milestone 9)
-- [ ] 2. Content decisions: characters, contact channel, Impressum ← **current**
-- [ ] 3. Structure: pages, nav, language switch
+- [ ] 2. Content decisions: characters, contact channel, Impressum — **mostly answered**, the
+      only things still missing are the costume character names and the real Impressum values
+- [ ] 3. Structure: pages, nav, language switch ← **current**
 - [ ] 4. German copy for the main page
 - [ ] 5. Russian copy for the main page
 - [ ] 6. Legal pages: Impressum, Datenschutz (German only) — deliberately late
@@ -38,6 +42,15 @@ rewriting the list.
 
 ## Decisions log (append-only, newest first)
 
+- 2026-11-04 — Answered by the human: **contact channel = e-mail link + phone number**, no form,
+  no third-party sender, no server script. The real address and number are still to be supplied.
+- 2026-11-04 — Answered: **the adult part appears as one neutral sentence, no list** — the named
+  adult add-ons from the price sheet ("Stas Striptease", "Sex Bomb") stay off the page.
+- 2026-11-04 — Answered: **the Russian switch covers the whole main page**; legal pages stay
+  German with a German-only note. Implementation is still open: one file with a JS toggle vs.
+  two static pages (`index.html` / `index.ru.html`). Leaning to two pages so it works without JS.
+- 2026-11-04 — Answered: **Impressum details are placeholders for now**, clearly marked, so the
+  legal pages cannot go live until the human replaces name/address/e-mail/phone.
 - 2026-11-04 — Audience clarified by the human: birthday parties are for **children with
   child-friendly costumes** and also **for adults**, where the themes are more adult but
   "still quite innocent, just dancing". So the page addresses both, and the adult add-on from
@@ -81,20 +94,20 @@ rewriting the list.
 
 ## Open blockers (need answers from the human)
 
-Mirrors `project.md` → "Offene Punkte":
+Same topics as `project.md` → "Offene Punkte", but numbered differently here (project.md
+re-numbers after the struck-through decided items were merged).
 
 - [x] 0. Stack choice — answered: plain HTML/CSS/JS, no build step, no dependencies.
-- [ ] 1. Impressum details: company name, address, e-mail/phone
+- [ ] 1. ~~Impressum: e-mail/phone channel decided (e-mail link + phone)~~ — still missing:
+      company name, address, the real e-mail address and phone number. Placeholders in use.
 - [ ] 2. Extra costume characters: their names, and when their assets arrive
 - [ ] 3. ~~Which prices may become public~~ → decided: **none, "auf Anfrage"**. Still open:
-      which items of the offer list are shown, and how adult-oriented events are sectioned
-      and worded (blocker 3a)
-- [ ] 3a. How adult-oriented events are presented: separate section? which wording? does a
-      named add-on from the price sheet appear at all?
-- [ ] 4. Contact channel: form, phone, e-mail, messenger?
+      which items of the offer list are shown
+- [x] 3a. Adult events — answered: **one neutral sentence, no list**, no named add-ons
+- [x] 4. Contact channel — answered: **e-mail link + phone**, no form
 - [ ] 5. Upload target: Strato file space, Squarespace or Jimdo — only needed at Milestone 9
       (the site itself is built as a static site, that is decided)
-- [ ] 6. Russian switch: whole main page, or selected texts only?
+- [x] 6. Russian switch — answered: **whole main page**, legal pages stay German
 - [ ] 7. References, testimonials, venues — do they exist?
 - [ ] 8. Cookie banner, analytics, image rights beyond DSGVO
 
@@ -112,6 +125,9 @@ Mirrors `project.md` → "Offene Punkte":
 
 ## Done
 
+- 2026-11-04 — Milestone 2 answered by the human: contact = **e-mail link + phone**, adult part
+   = **one neutral sentence, no list**, Russian switch = **whole main page**, Impressum =
+   **placeholders for now**. No site files written yet.
 - 2026-11-04 — Milestone 1 (Setup) closed: repo + docs committed, hosting approach and stack
   decided (static site, plain HTML/CSS/JS, no build step, zero dependencies).
 - 2026-11-04 — `project.md` (German), `agents.md` (English incl. session protocol),
