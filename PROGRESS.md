@@ -43,10 +43,19 @@ rewriting the list.
 
 ## Decisions log (append-only, newest first)
 
+- 2026-11-05 — Human asked for a `package.json`. Added it with **zero dependencies** (this
+  supersedes the earlier "no package.json" wording; the no-dependencies rule stands). Commands:
+  `npm run dev` = static server on http://127.0.0.1:4321 (serves only index*.html, legal pages
+  and `assets/`; never `customer-assets/`). `npm run preview` = builds `dist/preview/`
+  (git-ignored) for the customer: copies the site, rewrites root-absolute/directory links to
+  relative file links, fails on any unresolved link/asset. Open `dist/preview/index.html`
+  straight from the file system. Needs Node >= 18. New pages must be root-level `*.html`
+  files (or add them to the allow-list in `scripts/dev.mjs`).
+
 - 2026-11-05 — Human: main image is "mischka" (better ones come later); resizing is allowed
   freely; **layout and styling take priority** over content details right now. Used
   `figure-mischka-1.png` (800px copy) and `gold-paint-stroke.png` (800px copy) in the hero.
-  Gotcha: preview the site over http (`python -m http.server`), not file://.
+  Gotcha: the in-app browser pane shows file:// pages as snapshots without CSS/images; use `npm run dev`.
 
 - 2026-11-05 — Implemented the language switch as **two static pages** (`index.html` /
   `index.ru.html`) linked by DE/RU links: works without JS. Legal pages link back with a
