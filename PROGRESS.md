@@ -6,21 +6,22 @@ Update it before a session ends — see "Session protocol" in `agents.md`.
 
 ## Current phase
 
-**Phase 2 — Content decisions: answered, no site code written yet.** Setup is closed
-(static site, plain HTML/CSS/JS, no build step, no dependencies). The four content questions
-below were answered by the human. Nothing has been created in the working tree besides docs.
-Last updated: 2026-11-04
+**Phase 3 — First site skeleton written (text-only, placeholders).** Created `index.html`,
+`index.ru.html`, `impressum.html`, `datenschutz.html`, `assets/css/style.css`,
+`assets/js/site.js`. No images are used yet. Language switch = plain links between the two
+main pages (works without JS). Last updated: 2026-11-05
 
 ## Next step
 
-1. **Write the first files** (Milestone 3 + 4): `index.html` (German), `index.ru.html` (later),
-   `assets/css/style.css`, `assets/js/site.js` — plus `impressum.html` and `datenschutz.html`.
-   Nothing is installed, no build step.
-2. **Values still missing, use marked placeholders:** real e-mail address and phone number, and
-   the Impressum name/address — all of it is blocker 1. Costume figure names are blocker 2;
-   until they are answered the page says "weitere Figuren kommen".
-3. Milestone 5 (Russian copy), 6 (legal pages), 7 (look — needs answers about what each image
-   shows), 8 (accessibility). Upload target stays open until Milestone 9.
+1. **Ask the human what the images show** (agents.md: I cannot read images), pick hero
+   image and decorative plates, rename files if needed. Figure PNGs are 3-19 MB: web-sized
+   copies are needed in `assets/img/` (customer-assets stays read-only); ask how to produce
+   them, since that may need a tool (no dependencies without asking).
+2. **Confirm with the human:** the colors in `style.css` are a placeholder palette, not
+   matched to the artwork; the offer list (3 cards) is derived from the price sheet and not
+   confirmed; the adult-audience sentence wording; the Russian copy (native check).
+3. Replace placeholders (e-mail, phone, Impressum, hosting in Datenschutz) once supplied.
+4. Milestones 7 (look) and 8 (accessibility pass) next.
 
 ## Milestones
 
@@ -32,15 +33,22 @@ rewriting the list.
       only needed at Milestone 9)
 - [ ] 2. Content decisions: characters, contact channel, Impressum — **mostly answered**, the
       only things still missing are the costume character names and the real Impressum values
-- [ ] 3. Structure: pages, nav, language switch ← **current**
-- [ ] 4. German copy for the main page
-- [ ] 5. Russian copy for the main page
-- [ ] 6. Legal pages: Impressum, Datenschutz (German only) — deliberately late
+- [x] 3. Structure: pages, nav, language switch — skeleton done, see Decisions log
+- [ ] 4. German copy for the main page — first draft in `index.html`, needs human review ← **current**
+- [ ] 5. Russian copy for the main page — first draft in `index.ru.html`, needs native review
+- [ ] 6. Legal pages — placeholder drafts exist; need real data and legal review
 - [ ] 7. Look & animations: carnival/circus, subtle motion
 - [ ] 8. Accessibility: alt text, contrast, `prefers-reduced-motion`
 - [ ] 9. Deploy — only on explicit instruction
 
 ## Decisions log (append-only, newest first)
+
+- 2026-11-05 — Implemented the language switch as **two static pages** (`index.html` /
+  `index.ru.html`) linked by DE/RU links: works without JS. Legal pages link back with a
+  German-only note. Footer on the RU page carries the note in Russian.
+- 2026-11-05 — Skeleton uses **no images** (nothing confirmed by the human) and a placeholder
+  palette (dark plum, gold, red/blue/green accents). Page has no cookies, external fonts or
+  scripts; Datenschutz draft says so — keep that true or update it.
 
 - 2026-11-04 — Answered by the human: **contact channel = e-mail link + phone number**, no form,
   no third-party sender, no server script. The real address and number are still to be supplied.
