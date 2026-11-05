@@ -45,8 +45,18 @@ h1 { font-size: clamp(2.25rem, 8vw, 4rem); margin: 0 0 .5rem; color: var(--gold)
 h2 { font-size: 1.75rem; margin: 0 0 1rem; border-bottom: 3px solid var(--red); display: inline-block; padding-bottom: .15rem; }
 h3 { font-size: 1.2rem; margin: 0 0 .4rem; }
 
-.hero { padding-top: 4rem; text-align: center; }
+.hero {
+  display: grid; gap: 1.5rem; align-items: center; text-align: center;
+  padding-top: 2.5rem; padding-bottom: 1rem;
+}
+.hero-img { width: min(70%, 22rem); height: auto; margin: 0 auto; justify-self: center; filter: drop-shadow(0 12px 24px rgba(0,0,0,.45)); }
+.stroke { display: block; width: min(80%, 26rem); height: auto; margin: 0 auto; opacity: .9; }
 .lead { font-size: 1.25rem; color: var(--muted); max-width: 36rem; margin: 0 auto 1.5rem; }
+@media (min-width: 48em) {
+  .hero { grid-template-columns: 1.1fr .9fr; text-align: left; padding-top: 3.5rem; }
+  .hero .lead { margin-left: 0; }
+  .hero-img { width: 100%; max-height: 34rem; object-fit: contain; }
+}
 .button {
   display: inline-block; padding: .75rem 1.75rem; border-radius: 999px;
   background: var(--gold); color: #1b1426; font-weight: 700; text-decoration: none;

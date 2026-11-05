@@ -8,15 +8,15 @@ Update it before a session ends — see "Session protocol" in `agents.md`.
 
 **Phase 3 — First site skeleton written (text-only, placeholders).** Created `index.html`,
 `index.ru.html`, `impressum.html`, `datenschutz.html`, `assets/css/style.css`,
-`assets/js/site.js`. No images are used yet. Language switch = plain links between the two
+`assets/js/site.js`. Hero uses a resized copy of `figure-mischka-1.png` plus `gold-paint-stroke.png` (in `assets/img/`). Language switch = plain links between the two
 main pages (works without JS). Last updated: 2026-11-05
 
 ## Next step
 
-1. **Ask the human what the images show** (agents.md: I cannot read images), pick hero
-   image and decorative plates, rename files if needed. Figure PNGs are 3-19 MB: web-sized
-   copies are needed in `assets/img/` (customer-assets stays read-only); ask how to produce
-   them, since that may need a tool (no dependencies without asking).
+1. **Better Mischka assets arrive later** (human): swap `assets/img/figure-mischka-1.png`.
+   Other images (plates, other figures) still need the human to say what they show and where
+   to use them. Resize with PowerShell System.Drawing (no install needed), 800px wide, into
+   `assets/img/`; `customer-assets/` stays untouched.
 2. **Confirm with the human:** the colors in `style.css` are a placeholder palette, not
    matched to the artwork; the offer list (3 cards) is derived from the price sheet and not
    confirmed; the adult-audience sentence wording; the Russian copy (native check).
@@ -42,6 +42,11 @@ rewriting the list.
 - [ ] 9. Deploy — only on explicit instruction
 
 ## Decisions log (append-only, newest first)
+
+- 2026-11-05 — Human: main image is "mischka" (better ones come later); resizing is allowed
+  freely; **layout and styling take priority** over content details right now. Used
+  `figure-mischka-1.png` (800px copy) and `gold-paint-stroke.png` (800px copy) in the hero.
+  Gotcha: preview the site over http (`python -m http.server`), not file://.
 
 - 2026-11-05 — Implemented the language switch as **two static pages** (`index.html` /
   `index.ru.html`) linked by DE/RU links: works without JS. Legal pages link back with a
