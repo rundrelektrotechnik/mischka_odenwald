@@ -43,6 +43,26 @@ rewriting the list.
 
 ## Decisions log (append-only, newest first)
 
+- 2026-11-08 — Share image `assets/img/og-mischka-odenwald.jpg` (1200x630, ~60 KB) generated with
+  System.Drawing: customer's `background-gradient.png` scaled to cover + a **yellow disc with the
+  real Mischka figure** (`figure-mischka-1.png`, cropped like the homepage orb: cover, top 6%,
+  1.25x zoom, gold ring) centered with a soft shadow. I cannot see images, so framing/colors are
+  unchecked. Wired into og:image / twitter:image (summary_large_image). Social platforms cache
+  previews: use the Facebook Sharing Debugger to refresh after going live.
+- 2026-11-08 — SEO basics, all derived from `Domain:` in the text file (no domain → plain
+  relative language link, no crawl files): canonical, hreflang de/ru/x-default, Open Graph +
+  Twitter tags, LocalBusiness JSON-LD (same data as the Impressum, no opening hours), generated
+  `robots.txt` and `sitemap.xml` (legal pages stay noindex and out of the sitemap). Dev server and
+  `preview.mjs` serve/copy both files. Todo after going live: Google Search Console + submit the
+  sitemap; use real search words in the page titles (DE/RU).
+- 2026-11-08 — **Hosting decided: GitHub Pages** (Strato dropped). Workflow
+  `.github/workflows/build.yml` builds on every push/PR and deploys from main only
+  (`actions/deploy-pages`; ZIP artifact `webseite` kept). `Hoster: GitHub Inc.` in the text file;
+  Datenschutz §3 has a GitHub/US-transfer paragraph (DPF statement from my knowledge — legal
+  check). DNS at Squarespace: A ×4 for @ (185.199.108-111.153), CNAME www →
+  rundrelektrotechnik.github.io. **Site is live at https://mischka-odenwald.de with HTTPS**
+  (verified with curl; http and www redirect correctly).
+
 - 2026-11-08 — Domain **mischka-odenwald.de** is owned via Squarespace (domain only, no site).
   New text-file key `Domain:`; the Impressum/Datenschutz show it as "Website" and Datenschutz §3
   has a paragraph on Squarespace as domain/DNS provider (Squarespace Ireland Limited address
