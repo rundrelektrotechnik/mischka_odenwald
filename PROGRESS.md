@@ -43,6 +43,12 @@ rewriting the list.
 
 ## Decisions log (append-only, newest first)
 
+- 2026-11-08 — Favicon: schematic Mischka (flat bear head on a yellow disc) as
+  `assets/img/icon-mischka-favicon.svg` + 32px PNG + 180px apple-touch (square yellow bg).
+  Fur colors are a **guess from sampled pixel averages** of `figure-mischka-1.png` (I cannot
+  see it): head `#5b4f4b`, muzzle `#d9c3b0`. Human must check the look and correct the colors in
+  the SVG; the PNGs were drawn with the same shapes (redo both if the design changes).
+
 - 2026-11-08 — **Customer-editable content file.** `Texte-und-Kontaktdaten.txt` (root, German
   instructions, `[Abschnitt]` + `Schlüssel: Wert`, `#` = note) holds all non-legal texts (DE+RU),
   the figures (name, text, image file) and the contact data. `scripts/build.mjs` renders
