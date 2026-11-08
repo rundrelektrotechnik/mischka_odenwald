@@ -18,6 +18,8 @@ await mkdir(out, { recursive: true });
 
 const pages = (await readdir(root)).filter((f) => f.endsWith('.html'));
 await cp(join(root, 'assets'), join(out, 'assets'), { recursive: true });
+// Crawl files written by build.mjs (only when a domain is set).
+for (const f of ['robots.txt', 'sitemap.xml']) { try { await cp(join(root, f), join(out, f)); } catch {} }
 
 const attr = /\b(href|src)="([^"]*)"/g;
 const isLocal = (u) => u !== '' && !/^(#|[a-z][a-z0-9+.-]*:|\/\/)/i.test(u);

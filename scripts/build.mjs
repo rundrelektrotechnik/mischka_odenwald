@@ -107,6 +107,52 @@ function contactTiles(lang) {
   return { tiles: tiles.join('\n'), icons: icons.length ? `      <ul class="social-icons" aria-label="${u.social_label}">\n${icons.join('\n')}\n      </ul>` : '' };
 }
 
+// ---- SEO: canonical, hreflang, Open Graph, structured data, robots.txt, sitemap.xml ----
+// All of it needs the absolute address, so it is built from "Domain:" in the text file. Without a
+// domain the pages fall back to a plain relative language link and no robots/sitemap are written.
+const base = contact.domain ? `https://${contact.domain}` : '';
+const pageUrl = { de: `${base}/`, ru: `${base}/index.ru.html` };
+
+function seoTags(lang) {
+  const other = lang === 'de' ? 'ru' : 'de';
+  if (!base) return `<link rel="alternate" hreflang="${other}" href="${other === 'de' ? 'index.html' : 'index.ru.html'}">`;
+  const title = esc(tx('Webseite', 'Titel', lang)); const desc = esc(tx('Webseite', 'Beschreibung', lang));
+  const t = [
+    `<link rel="canonical" href="${pageUrl[lang]}">`,
+    `<link rel="alternate" hreflang="de" href="${pageUrl.de}">`,
+    `<link rel="alternate" hreflang="ru" href="${pageUrl.ru}">`,
+    `<link rel="alternate" hreflang="x-default" href="${pageUrl.de}">`,
+    `<meta property="og:type" content="website">`,
+    `<meta property="og:site_name" content="${esc(raw('Webseite', 'Name'))}">`,
+    `<meta property="og:title" content="${title}">`,
+    `<meta property="og:description" content="${desc}">`,
+    `<meta property="og:url" content="${pageUrl[lang]}">`,
+    `<meta property="og:locale" content="${lang === 'de' ? 'de_DE' : 'ru_RU'}">`,
+    `<meta property="og:locale:alternate" content="${other === 'de' ? 'de_DE' : 'ru_RU'}">`,
+    `<meta name="twitter:card" content="summary">`,
+  ];
+  // Structured data (LocalBusiness) from the same contact data as the Impressum.
+  const m = contact.ort.match(/^(\d{5})\s+(.+)$/);
+  const ld = {
+    '@context': 'https://schema.org', '@type': 'LocalBusiness',
+    name: raw('Webseite', 'Name'), url: base, inLanguage: lang,
+    ...(contact.tel ? { telephone: contact.tel } : {}), ...(contact.mail ? { email: contact.mail } : {}),
+    ...(contact.strasse && m ? { address: { '@type': 'PostalAddress', streetAddress: contact.strasse, postalCode: m[1], addressLocality: m[2], addressCountry: 'DE' } } : {}),
+    sameAs: [contact.ig, contact.fb].filter(Boolean),
+  };
+  t.push(`<script type="application/ld+json">${JSON.stringify(ld).replace(/</g, '\\u003c')}</script>`);
+  return t.map((x) => `  ${x}`).join('\n').trimStart();
+}
+
+function writeCrawlFiles() {
+  if (!base) return;
+  writeFileSync(join(root, 'robots.txt'), `User-agent: *\nAllow: /\n\nSitemap: ${base}/sitemap.xml\n`);
+  const alt = (l, u) => `    <xhtml:link rel="alternate" hreflang="${l}" href="${u}"/>`;
+  const entry = (u) => `  <url>\n    <loc>${u}</loc>\n${alt('de', pageUrl.de)}\n${alt('ru', pageUrl.ru)}\n${alt('x-default', pageUrl.de)}\n  </url>`;
+  writeFileSync(join(root, 'sitemap.xml'),
+    `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n${entry(pageUrl.de)}\n${entry(pageUrl.ru)}\n</urlset>\n`);
+}
+
 // ---- main pages -------------------------------------------------------------
 function mainPage(lang) {
   const u = UI[lang]; const other = lang === 'de' ? 'ru' : 'de';
@@ -131,7 +177,7 @@ function mainPage(lang) {
   const who = numbered('Zielgruppe').map((s) => `        <article>\n          <h3>${esc(tx(s, 'Titel', lang))}</h3>\n          <p>${esc(tx(s, 'Text', lang))}</p>\n        </article>`).join('\n');
 
   return {
-    lang, other_lang: other, site_name: esc(raw('Webseite', 'Name')),
+    lang, other_lang: other, seo_tags: seoTags(lang), site_name: esc(raw('Webseite', 'Name')),
     this_file: lang === 'de' ? 'index.html' : 'index.ru.html', other_file: lang === 'de' ? 'index.ru.html' : 'index.html',
     page_title: esc(tx('Webseite', 'Titel', lang)), page_description: esc(tx('Webseite', 'Beschreibung', lang)),
     ui_skip: u.skip, ui_nav_label: u.nav_label, ui_lang_label: u.lang_label,
@@ -213,6 +259,7 @@ render('index.tpl.html', 'index.ru.html', mainPage('ru'));
 render('impressum.tpl.html', 'impressum.html', legalVars());
 render('datenschutz.tpl.html', 'datenschutz.html', legalVars());
 
-console.log('Seiten gebaut: index.html, index.ru.html, impressum.html, datenschutz.html');
+writeCrawlFiles();
+console.log('Seiten gebaut: index.html, index.ru.html, impressum.html, datenschutz.html' + (base ? ', robots.txt, sitemap.xml' : ''));
 const uniq = [...new Set(warnings)];
 if (uniq.length) console.log('\nHinweise (keine Fehler):\n  - ' + uniq.join('\n  - '));

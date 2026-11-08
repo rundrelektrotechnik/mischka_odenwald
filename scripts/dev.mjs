@@ -16,13 +16,14 @@ const host = hostArg === -1 ? '127.0.0.1'
 
 const types = {
   '.html': 'text/html; charset=utf-8', '.css': 'text/css; charset=utf-8',
+  '.txt': 'text/plain; charset=utf-8', '.xml': 'application/xml; charset=utf-8',
   '.js': 'text/javascript; charset=utf-8', '.png': 'image/png', '.jpg': 'image/jpeg',
   '.jpeg': 'image/jpeg', '.svg': 'image/svg+xml', '.ico': 'image/x-icon', '.json': 'application/json',
 };
 
 // Only the site itself is served: never customer-assets/, scripts/, .git or docs.
 const allowed = (rel) =>
-  /^(index(\.ru)?|impressum|datenschutz)\.html$/.test(rel) || rel.startsWith('assets' + sep);
+  /^((index(\.ru)?|impressum|datenschutz)\.html|robots\.txt|sitemap\.xml)$/.test(rel) || rel.startsWith('assets' + sep);
 
 createServer(async (req, res) => {
   try {
