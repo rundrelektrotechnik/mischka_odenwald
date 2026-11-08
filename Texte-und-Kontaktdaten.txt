@@ -1,0 +1,153 @@
+##############################################################################
+#  TEXTE UND KONTAKTDATEN FÜR DIE WEBSEITE
+#
+#  So geht's:
+#   - Diese Datei mit dem normalen Editor (Notepad) öffnen und die Texte
+#     hinter dem Doppelpunkt ändern. Speichern. Fertig.
+#   - Eine Zeile ist ein Text. Bitte keinen Zeilenumbruch mitten im Text machen.
+#   - Zeilen, die mit # anfangen, sind Notizen und erscheinen nicht auf der Seite.
+#   - Die Namen in [eckigen Klammern] und vor den Doppelpunkten bitte NICHT ändern.
+#   - "Deutsch" ist der deutsche Text, "Russisch" der russische Text.
+#   - Leer lassen = erscheint nicht bzw. als [PLATZHALTER] auf der Seite.
+#   - Nicht enthalten (feste Rechtstexte): Datenschutzerklärung.
+##############################################################################
+
+
+[Kontaktdaten]
+# Diese Angaben erscheinen im Impressum, in der Datenschutzerklärung und im Kontaktbereich.
+Firma: mischka_odenwald
+Inhaber: Anastasiia Rempel
+Rechtsform: Kleinunternehmen
+Straße und Hausnummer: Lauerbacher Weg 19
+PLZ und Ort: 64711 Erbach
+Telefon: +491604612442
+# Die E-Mail-Adresse fehlt noch. Bitte eintragen:
+E-Mail:
+Instagram-Link: https://www.instagram.com/mischka_odenwald
+Facebook-Link: https://www.facebook.com/mischka.odenwald
+
+
+[Webseite]
+# Erscheint im Browser-Tab und bei Google.
+Titel Deutsch: Mischka Odenwald – der tanzende Bär für Ihre Feier
+Titel Russisch: Мишка Оденвальд – танцующий медведь на ваш праздник
+Beschreibung Deutsch: Mischka Odenwald: tanzender Bär, Ballonfiguren und Mitmach-Spaß für Kinder- und Geburtstagsfeiern.
+Beschreibung Russisch: Мишка Оденвальд: танцующий медведь, фигурки из воздушных шаров и весёлые игры для детских и семейных праздников.
+
+
+[Startseite]
+# Der Text ganz oben unter dem Namen.
+Willkommenstext Deutsch: Der tanzende Bär für Ihre Feier – mit Musik, Ballonfiguren und guter Laune.
+Willkommenstext Russisch: Танцующий медведь для вашего праздника – с музыкой, фигурками из шаров и хорошим настроением.
+Knopf Deutsch: Jetzt anfragen
+Knopf Russisch: Оставить заявку
+Hinweis Deutsch: Figur antippen für Details
+Hinweis Russisch: Нажмите на персонажа, чтобы узнать больше
+
+
+# ---------------------------------------------------------------------------
+#  FIGUREN (die gelben Kreise oben). Reihenfolge = Reihenfolge im Halbkreis.
+#  Weitere Figur? Einen Block kopieren, Nummer erhöhen (Figur 8, Figur 9 ...).
+#  "Bild" ist der Dateiname des Bildes im Ordner assets/img – bitte nicht ändern.
+# ---------------------------------------------------------------------------
+
+[Figur 1]
+Name Deutsch: Mischka
+Name Russisch: Мишка
+Text Deutsch: [Platzhalter] Hier steht bald eine kurze Beschreibung von Mischka: Kostüm, Programm und für welche Feier die Figur passt.
+Text Russisch: [Заглушка] Здесь скоро появится краткое описание: Мишка – костюм, программа и для какого праздника подходит персонаж.
+Bild: figure-mischka-1.png
+
+[Figur 2]
+Name Deutsch: Lola
+Name Russisch: Лола
+Text Deutsch: [Platzhalter] Hier steht bald eine kurze Beschreibung von Lola: Kostüm, Programm und für welche Feier die Figur passt.
+Text Russisch: [Заглушка] Здесь скоро появится краткое описание: Лола – костюм, программа и для какого праздника подходит персонаж.
+Bild: figure-lola-1.png
+
+[Figur 3]
+Name Deutsch: Asti
+Name Russisch: Асти
+Text Deutsch: [Platzhalter] Hier steht bald eine kurze Beschreibung von Asti: Kostüm, Programm und für welche Feier die Figur passt.
+Text Russisch: [Заглушка] Здесь скоро появится краткое описание: Асти – костюм, программа и для какого праздника подходит персонаж.
+Bild: figure-asti-red.png
+
+[Figur 4]
+Name Deutsch: Stas
+Name Russisch: Стас
+Text Deutsch: [Platzhalter] Hier steht bald eine kurze Beschreibung von Stas: Kostüm, Programm und für welche Feier die Figur passt.
+Text Russisch: [Заглушка] Здесь скоро появится краткое описание: Стас – костюм, программа и для какого праздника подходит персонаж.
+Bild: figure-stas-1.png
+
+[Figur 5]
+Name Deutsch: Tscheburaschka
+Name Russisch: Чебурашка
+Text Deutsch: [Platzhalter] Hier steht bald eine kurze Beschreibung von Tscheburaschka: Kostüm, Programm und für welche Feier die Figur passt.
+Text Russisch: [Заглушка] Здесь скоро появится краткое описание: Чебурашка – костюм, программа и для какого праздника подходит персонаж.
+Bild: figure-cheburashka-1.png
+
+[Figur 6]
+Name Deutsch: Panda
+Name Russisch: Панда
+Text Deutsch: [Platzhalter] Hier steht bald eine kurze Beschreibung von Panda: Kostüm, Programm und für welche Feier die Figur passt.
+Text Russisch: [Заглушка] Здесь скоро появится краткое описание: Панда – костюм, программа и для какого праздника подходит персонаж.
+Bild: figure-panda-blackwhite-1.png
+
+[Figur 7]
+Name Deutsch: Minecraft-Figur
+Name Russisch: Майнкрафт
+Text Deutsch: [Platzhalter] Hier steht bald eine kurze Beschreibung von Minecraft-Figur: Kostüm, Programm und für welche Feier die Figur passt.
+Text Russisch: [Заглушка] Здесь скоро появится краткое описание: Майнкрафт – костюм, программа и для какого праздника подходит персонаж.
+Bild: figure-minecraft-guy-1.png
+
+
+[Angebot]
+Überschrift Deutsch: Das Angebot
+Überschrift Russisch: Программа
+Preishinweis Deutsch: Preise auf Anfrage.
+Preishinweis Russisch: Стоимость – по запросу.
+
+# Die Angebots-Karten. Weitere Karte? Block kopieren und Nummer erhöhen.
+[Angebot 1]
+Titel Deutsch: Tanzauftritt
+Titel Russisch: Танцевальное выступление
+Text Deutsch: Mischka tanzt in wechselnden Kostümen – zu Musik, die zu Ihrer Feier passt.
+Text Russisch: Мишка танцует в разных костюмах под музыку, которая подходит вашему празднику.
+
+[Angebot 2]
+Titel Deutsch: Ballonfiguren
+Titel Russisch: Фигурки из шаров
+Text Deutsch: Lustige Figuren und Blumen aus Luftballons, direkt vor Ort gebastelt.
+Text Russisch: Забавные фигурки и цветы из воздушных шаров – прямо на празднике.
+
+[Angebot 3]
+Titel Deutsch: Spiele & Mitmachen
+Titel Russisch: Игры и мыльные пузыри
+Text Deutsch: Spiele, Seifenblasen und Zeit für Fotos mit Mischka.
+Text Russisch: Игры, мыльные пузыри и время для фото с Мишкой.
+
+
+[Für wen]
+Überschrift Deutsch: Für wen?
+Überschrift Russisch: Для кого?
+
+[Zielgruppe 1]
+Titel Deutsch: Kinder- und Geburtstagsfeiern
+Titel Russisch: Детские праздники и дни рождения
+Text Deutsch: Kinderfreundliche Kostüme, viel Bewegung und Staunen – der Hauptfall bei Mischka.
+Text Russisch: Дружелюбные детские костюмы, много движения и удивления – это главное направление Мишки.
+
+[Zielgruppe 2]
+Titel Deutsch: Feiern für Erwachsene
+Titel Russisch: Праздники для взрослых
+Text Deutsch: Auch Erwachsene feiern mit Mischka: Die Themen sind erwachsener, im Kern bleibt es unschuldiger Tanzspaß.
+Text Russisch: С Мишкой могут веселиться и взрослые: темы взрослее, но по сути это по-прежнему невинные танцы.
+
+
+[Kontakt]
+Überschrift Deutsch: Kontakt & Anfrage
+Überschrift Russisch: Контакты и заявка
+Einleitung Deutsch: Schreiben Sie uns oder rufen Sie an – wir melden uns zu Termin und Preis.
+Einleitung Russisch: Напишите или позвоните нам – мы ответим по дате и стоимости.
+Soziale Medien Deutsch: Mehr Bilder und Neuigkeiten finden Sie auch bei Instagram und Facebook:
+Soziale Medien Russisch: Больше фото и новостей – в Instagram и Facebook:

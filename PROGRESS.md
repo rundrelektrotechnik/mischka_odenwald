@@ -20,7 +20,7 @@ main pages (works without JS). Last updated: 2026-11-05
 2. **Confirm with the human:** the colors in `style.css` are a placeholder palette, not
    matched to the artwork; the offer list (3 cards) is derived from the price sheet and not
    confirmed; the adult-audience sentence wording; the Russian copy (native check).
-3. Replace placeholders (e-mail, phone, Impressum, hosting in Datenschutz) once supplied.
+3. Replace remaining placeholders: e-mail (in the txt file), Kleinunternehmer/USt note, hosting in Datenschutz.
 4. Milestones 7 (look) and 8 (accessibility pass) next.
 
 ## Milestones

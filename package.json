@@ -5,8 +5,9 @@
   "description": "Static site for Mischka Odenwald. No dependencies, no build framework.",
   "type": "module",
   "scripts": {
-    "dev": "node scripts/dev.mjs",
-    "preview": "node scripts/preview.mjs"
+    "build": "node scripts/build.mjs",
+    "dev": "node scripts/build.mjs && node scripts/dev.mjs",
+    "preview": "node scripts/build.mjs && node scripts/preview.mjs"
   },
   "engines": {
     "node": ">=18"
