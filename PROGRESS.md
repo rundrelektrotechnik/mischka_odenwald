@@ -43,6 +43,21 @@ rewriting the list.
 
 ## Decisions log (append-only, newest first)
 
+- 2026-11-08 — **Customer-editable content file.** `Texte-und-Kontaktdaten.txt` (root, German
+  instructions, `[Abschnitt]` + `Schlüssel: Wert`, `#` = note) holds all non-legal texts (DE+RU),
+  the figures (name, text, image file) and the contact data. `scripts/build.mjs` renders
+  `templates/*.tpl.html` into the root pages `index.html`, `index.ru.html`, `impressum.html`,
+  `datenschutz.html` (**generated — edit the templates or the txt, never the root html**).
+  `npm run dev` and `npm run preview` run the build first; `Vorschau-erstellen.bat` is the
+  double-click version for the customer (needs Node). Figures/offer cards/target groups are
+  numbered blocks and can be added by copying. Empty e-mail → visible [PLATZHALTER]; empty RU
+  text → German fallback + warning. Fixed UI strings live in `UI` in build.mjs.
+- 2026-11-08 — Real data from the human: Firma `mischka_odenwald` (**confirmed as the official
+  name**), Inhaberin Anastasiia Rempel (shown as "Inhaber/in"), Lauerbacher Weg 19, 64711
+  Erbach, tel +491604612442, Rechtsform Kleinunternehmen. Impressum + Datenschutz fill from
+  these. **Still missing:** e-mail; Kleinunternehmer note (§ 19 UStG) / USt-ID wording needs a
+  legal check (placeholder kept).
+
 - 2026-11-05 — Human asked for a `package.json`. Added it with **zero dependencies** (this
   supersedes the earlier "no package.json" wording; the no-dependencies rule stands). Commands:
   `npm run dev` = static server on http://127.0.0.1:4321 (serves only index*.html, legal pages
