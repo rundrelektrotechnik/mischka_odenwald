@@ -53,13 +53,13 @@ const UI = {
     skip: 'Zum Inhalt springen', nav_label: 'Hauptnavigation', lang_label: 'Sprache',
     angebot: 'Angebot', feiern: 'Für wen', figuren: 'Figuren', kontakt: 'Kontakt',
     placeholder_mail: '[PLATZHALTER: E-Mail-Adresse]', placeholder_tel: '[PLATZHALTER: Telefonnummer]',
-    mail: 'E-Mail', phone: 'Telefon', newtab: ' (öffnet in neuem Tab)', wa_text: 'Nachricht schreiben', note: '',
+    mail: 'E-Mail', phone: 'Telefon', newtab: ' (öffnet in neuem Tab)', social_label: 'Soziale Medien', note: '',
   },
   ru: {
     skip: 'Перейти к содержимому', nav_label: 'Главное меню', lang_label: 'Язык',
     angebot: 'Программа', feiern: 'Для кого', figuren: 'Персонажи', kontakt: 'Контакты',
     placeholder_mail: '[ЗАГЛУШКА: адрес e-mail]', placeholder_tel: '[ЗАГЛУШКА: номер телефона]',
-    mail: 'E-mail', phone: 'Телефон', newtab: ' (откроется в новой вкладке)', wa_text: 'Написать сообщение',
+    mail: 'E-mail', phone: 'Телефон', newtab: ' (откроется в новой вкладке)', social_label: 'Соцсети',
     note: '<span class="note">Правовые страницы доступны только на немецком языке.</span>',
   },
 };
@@ -89,26 +89,21 @@ const orPH = (v, t) => (v ? esc(v) : PH(`[PLATZHALTER: ${t}]`));
 const ICON_MAIL = '<svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" focusable="false"><rect x="3" y="5" width="18" height="14" rx="2.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M4 7.5l8 6 8-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>';
 const ICON_TEL = '<svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" focusable="false"><path fill="currentColor" d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1l-2.3 2.2z"/></svg>';
 
-// Last path part of a profile URL, shown as the handle (@name) under the network name.
-const handle = (url) => { try { return '@' + new URL(url).pathname.split('/').filter(Boolean).pop(); } catch { return ''; } };
-
-// One tile per contact channel: e-mail, phone, WhatsApp, Instagram, Facebook. Social links appear
-// only here (not repeated in the footer).
+// Contact tiles for e-mail and phone, plus an icon-only row for WhatsApp, Instagram, Facebook.
+// Social links appear only here (not repeated in the footer).
 function contactTiles(lang) {
-  const u = UI[lang]; const out = []; const ext = 'target="_blank" rel="noopener noreferrer"';
-  const tile = (icon, label, value, href, external, social) => {
-    const li = social ? '<li class="is-social">' : '<li>';
+  const u = UI[lang]; const tiles = []; const icons = []; const ext = 'target="_blank" rel="noopener noreferrer"';
+  const tile = (icon, label, value, href) => {
     const body = `<span class="tile-icon">${icon}</span><span class="tile-text"><span class="tile-label">${label}</span><span class="tile-value">${value}</span></span>`;
-    out.push(href
-      ? `        ${li}<a class="tile" href="${esc(href)}"${external ? ` ${ext}` : ''}>${body}${external ? `<span class="sr">${u.newtab}</span>` : ''}</a></li>`
-      : `        ${li}<span class="tile">${body}</span></li>`);
+    tiles.push(href ? `        <li><a class="tile" href="${esc(href)}">${body}</a></li>` : `        <li><span class="tile">${body}</span></li>`);
   };
+  const social = (icon, name, href) => icons.push(`        <li><a class="soc" href="${esc(href)}" ${ext} title="${name}">${icon}<span class="sr">${name}${u.newtab}</span></a></li>`);
   tile(ICON_MAIL, u.mail, contact.mail ? esc(contact.mail) : PH(u.placeholder_mail), contact.mail && `mailto:${contact.mail}`);
   tile(ICON_TEL, u.phone, contact.tel ? esc(contact.tel) : PH(u.placeholder_tel), contact.tel && `tel:${contact.tel.replace(/[^+\d]/g, '')}`);
-  if (showWa) tile(ICON_WA, 'WhatsApp', u.wa_text, `https://wa.me/${waDigits}`, true, true);
-  if (contact.ig) tile(ICON_IG, 'Instagram', esc(handle(contact.ig)), contact.ig, true, true);
-  if (contact.fb) tile(ICON_FB, 'Facebook', esc(handle(contact.fb)), contact.fb, true, true);
-  return out.join('\n');
+  if (showWa) social(ICON_WA, 'WhatsApp', `https://wa.me/${waDigits}`);
+  if (contact.ig) social(ICON_IG, 'Instagram', contact.ig);
+  if (contact.fb) social(ICON_FB, 'Facebook', contact.fb);
+  return { tiles: tiles.join('\n'), icons: icons.length ? `      <ul class="social-icons" aria-label="${u.social_label}">\n${icons.join('\n')}\n      </ul>` : '' };
 }
 
 // ---- main pages -------------------------------------------------------------
@@ -142,7 +137,7 @@ function mainPage(lang) {
     orbs: orbHtml, details: detailHtml,
     offer_heading: esc(tx('Angebot', 'Überschrift', lang)), offer_cards: cards,
     who_heading: esc(tx('Für wen', 'Überschrift', lang)), who_articles: who,
-    contact_heading: esc(tx('Kontakt', 'Überschrift', lang)), contact_intro: esc(tx('Kontakt', 'Einleitung', lang)), contact_tiles: contactTiles(lang),
+    contact_heading: esc(tx('Kontakt', 'Überschrift', lang)), contact_intro: esc(tx('Kontakt', 'Einleitung', lang)), contact_tiles: contactTiles(lang).tiles, social_icons: contactTiles(lang).icons,
     footer_note: u.note ? `    ${u.note}` : '',
   };
 }

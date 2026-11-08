@@ -43,6 +43,10 @@ rewriting the list.
 
 ## Decisions log (append-only, newest first)
 
+- 2026-11-08 — Contact socials changed to **icon-only**: round yellow icon buttons
+  (WhatsApp, Instagram, Facebook; name as screen-reader text + tooltip) in a row below the
+  e-mail/phone tiles. Supersedes the compact social tiles from earlier today.
+
 - 2026-11-08 — "Preise auf Anfrage." removed from the page and from the text file (the
   `Preishinweis` lines are gone; no price statement on the site now). Contact section relaid out
   as **tiles** (e-mail, phone | WhatsApp, Instagram, Facebook) in a 6-column grid: 2+3 on wide
