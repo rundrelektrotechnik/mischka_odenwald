@@ -8,6 +8,12 @@ const root = resolve(fileURLToPath(new URL('..', import.meta.url)));
 const portArg = process.argv.indexOf('--port');
 const port = Number(portArg > -1 ? process.argv[portArg + 1] : process.env.PORT) || 4321;
 
+// Default: localhost only. Pass `--host` (all interfaces, e.g. to show the page on the local WLAN)
+// or `--host <address>` to listen elsewhere.
+const hostArg = process.argv.indexOf('--host');
+const host = hostArg === -1 ? '127.0.0.1'
+  : (process.argv[hostArg + 1] && !process.argv[hostArg + 1].startsWith('--') ? process.argv[hostArg + 1] : '0.0.0.0');
+
 const types = {
   '.html': 'text/html; charset=utf-8', '.css': 'text/css; charset=utf-8',
   '.js': 'text/javascript; charset=utf-8', '.png': 'image/png', '.jpg': 'image/jpeg',
@@ -31,7 +37,7 @@ createServer(async (req, res) => {
     res.writeHead(404, { 'Content-Type': 'text/plain; charset=utf-8' });
     res.end('404 Not found');
   }
-}).listen(port, '127.0.0.1', () => console.log(`Dev server: http://127.0.0.1:${port}/  (Ctrl+C to stop)`));
+}).listen(port, host, () => console.log(`Dev server: http://${host}:${port}/  (Ctrl+C to stop)`));
 
 // Watch mode: rebuild the pages whenever the customer text file, a template or the build
 // script changes. Watches the folders (not the files) so editors that save by replacing
