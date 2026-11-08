@@ -167,3 +167,16 @@ a.tile:hover, a.tile:focus-visible { border-color: var(--gold); transform: trans
 @media (max-width: 39.99em) {
   .arc li.is-center { top: calc(var(--size) / 2 + var(--R) * .54); }
 }
+
+/* Phones: drop the half circle (too tall) and show the figures as a compact wrapped grid
+   above the detail card. Names stay screen-reader only; the card shows the name. */
+@media (max-width: 39.99em) {
+  .moon { --size: clamp(3rem, 17vw, 3.9rem); }
+  .arc { height: auto; display: flex; flex-wrap: wrap; justify-content: center; gap: .9rem .8rem; margin: 0 0 .75rem; padding-top: .35rem; }
+  .arc li, .arc li.is-center { position: static; transform: none; width: var(--size); }
+  .is-center .orb-disc { width: var(--size); height: var(--size); }
+  .js-tabs .arc li { animation-name: orb-in-flat; }
+  .moon-hint { margin-bottom: .6rem; }
+}
+@keyframes orb-in-flat { from { opacity: 0; transform: scale(.7); } to { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: reduce) { .js-tabs .arc li { animation: none; } }

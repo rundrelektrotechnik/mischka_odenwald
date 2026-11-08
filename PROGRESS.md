@@ -43,6 +43,10 @@ rewriting the list.
 
 ## Decisions log (append-only, newest first)
 
+- 2026-11-08 — Phones (< 40em): the half circle is replaced by a **compact wrapped grid** of the
+  orbs (4 + 3, names screen-reader only) above the detail card; saves ~80px+ of height and
+  avoids the empty arc interior. Half circle stays from 40em up. Checked at 375px and 320px.
+
 - 2026-11-08 — **Legal pages completed (standard texts, not lawyer-reviewed).** Impressum: § 5 DDG
   address block, contact, **Umsatzsteuer = Kleinunternehmer § 19 UStG** (confirmed by the human;
   "Kleinunternehmen" in the text file is treated as a tax status, so no "Rechtsform:" line is
