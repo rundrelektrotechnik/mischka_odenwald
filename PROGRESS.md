@@ -43,6 +43,15 @@ rewriting the list.
 
 ## Decisions log (append-only, newest first)
 
+- 2026-11-08 — Branch renamed `master` → `main`. Remote `origin` =
+  https://github.com/rundrelektrotechnik/mischka_odenwald (**public**). Added `README.md`
+  (German, non-technical: edit the txt on GitHub, download the artifact), the workflow
+  `.github/workflows/build.yml` (on push to main / PR / manual: `npm run build:prod` →
+  artifact `webseite` from `dist/site`; **no deployment**, no domain/hosting yet) and
+  `scripts/preview.mjs --out`. **Push held back:** the repo is public but `customer-assets/`
+  (price list xlsx, flyers, customer notes) is tracked — needs the human's decision before it
+  goes public (see conversation).
+
 - 2026-11-08 — Phones (< 40em): the half circle is replaced by a **compact wrapped grid** of the
   orbs (4 + 3, names screen-reader only) above the detail card; saves ~80px+ of height and
   avoids the empty arc interior. Half circle stays from 40em up. Checked at 375px and 320px.

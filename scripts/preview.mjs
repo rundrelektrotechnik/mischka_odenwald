@@ -9,7 +9,9 @@ import { dirname, join, posix, relative, resolve, sep } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const root = resolve(fileURLToPath(new URL('..', import.meta.url)));
-const out = join(root, 'dist', 'preview');
+// Output folder: dist/preview by default; `--out <dir>` (relative to the repo) for the production artifact.
+const outArg = process.argv.indexOf('--out');
+const out = join(root, outArg > -1 ? process.argv[outArg + 1] : join('dist', 'preview'));
 
 await rm(out, { recursive: true, force: true });
 await mkdir(out, { recursive: true });
