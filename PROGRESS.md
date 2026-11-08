@@ -43,6 +43,14 @@ rewriting the list.
 
 ## Decisions log (append-only, newest first)
 
+- 2026-11-08 — "Preise auf Anfrage." removed from the page and from the text file (the
+  `Preishinweis` lines are gone; no price statement on the site now). Contact section relaid out
+  as **tiles** (e-mail, phone | WhatsApp, Instagram, Facebook) in a 6-column grid: 2+3 on wide
+  screens, on phones e-mail/phone full width and the three social tiles compact in one row.
+  Social links now appear **only there**; the footer is just Impressum / Datenschutz. The
+  "Soziale Medien" intro lines were removed from the text file. Handles shown on the tiles are
+  derived from the profile URLs.
+
 - 2026-11-08 — WhatsApp added to the social links: `https://wa.me/<digits of Telefon>`, derived
   automatically; `WhatsApp anzeigen: ja/nein` in the text file switches it. Icon is inline SVG.
   Datenschutz note and the social intro text now mention WhatsApp (legal wording still to be

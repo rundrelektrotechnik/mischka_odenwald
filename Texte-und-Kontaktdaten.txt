@@ -107,21 +107,19 @@ Bild: figure-minecraft-guy-1.png
 [Angebot]
 Überschrift Deutsch: Das Angebot
 Überschrift Russisch: Программа
-Preishinweis Deutsch: Preise auf Anfrage.
-Preishinweis Russisch: Стоимость – по запросу.
 
 # Die Angebots-Karten. Weitere Karte? Block kopieren und Nummer erhöhen.
 [Angebot 1]
 Titel Deutsch: Tanzauftritt
 Titel Russisch: Танцевальное выступление
-Text Deutsch: Mischka tanzt in wechselnden Kostümen – zu Musik, die zu Ihrer Feier passt.
-Text Russisch: Мишка танцует в разных костюмах под музыку, которая подходит вашему празднику.
+Text Deutsch: Tanz im Kostüm – zu Musik, die zu Ihrer Feier passt.
+Text Russisch: Танцы в костюме под музыку, которая подходит вашему празднику.
 
 [Angebot 2]
 Titel Deutsch: Ballonfiguren
 Titel Russisch: Фигурки из шаров
-Text Deutsch: Lustige Figuren und Blumen aus Luftballons, direkt vor Ort gebastelt.
-Text Russisch: Забавные фигурки и цветы из воздушных шаров – прямо на празднике.
+Text Deutsch: Ein Bouquet aus Luftballons wird immer mitgebracht. Spezielle Wünsche und Figuren vorab verabreden.
+Text Russisch: Каждый персонаж принесёт букет из воздушных шаров. Отдельные фигуры и желания обговариваются заранее.
 
 [Angebot 3]
 Titel Deutsch: Spiele & Mitmachen
@@ -152,5 +150,3 @@ Text Russisch: С Мишкой могут веселиться и взрослы
 Überschrift Russisch: Контакты и заявка
 Einleitung Deutsch: Schreiben Sie uns oder rufen Sie an – wir melden uns zu Termin und Preis.
 Einleitung Russisch: Напишите или позвоните нам – мы ответим по дате и стоимости.
-Soziale Medien Deutsch: Mehr Bilder und Neuigkeiten finden Sie auch bei Instagram und Facebook – oder schreiben Sie uns direkt per WhatsApp:
-Soziale Medien Russisch: Больше фото и новостей – в Instagram и Facebook – или напишите нам в WhatsApp:
