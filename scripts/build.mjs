@@ -112,7 +112,7 @@ function mainPage(lang) {
   ];
   const social = socialList(lang, '      ');
   return {
-    lang, other_lang: other,
+    lang, other_lang: other, site_name: esc(raw('Webseite', 'Name')),
     this_file: lang === 'de' ? 'index.html' : 'index.ru.html', other_file: lang === 'de' ? 'index.ru.html' : 'index.html',
     page_title: esc(tx('Webseite', 'Titel', lang)), page_description: esc(tx('Webseite', 'Beschreibung', lang)),
     ui_skip: u.skip, ui_nav_label: u.nav_label, ui_lang_label: u.lang_label,
@@ -140,6 +140,7 @@ function legalVars() {
   return {
     imprint_address: `    <p>\n      ${addr.join('<br>\n      ')}\n    </p>`,
     imprint_contact: `    <p>\n      ${lines}\n    </p>`,
+    site_name: esc(raw('Webseite', 'Name')),
     controller: `<p>\n      ${addr.join('<br>\n      ')}<br>\n      ${lines}\n    </p>`,
   };
 }
