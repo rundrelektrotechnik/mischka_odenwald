@@ -67,13 +67,19 @@ const UI = {
 const ICON_IG = '<svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" focusable="false"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor"/></svg>';
 const ICON_FB = '<svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" focusable="false"><path fill="currentColor" d="M13.5 21v-8h2.7l.4-3.2h-3.1V7.8c0-.9.3-1.5 1.6-1.5h1.7V3.4C16.5 3.3 15.5 3.2 14.4 3.2c-2.4 0-4 1.4-4 4.1v2.5H7.7V13h2.7v8z"/></svg>';
 
+const ICON_WA = '<svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" focusable="false"><path d="M3 21l1.6-4.9A9 9 0 1 1 8 19.4L3 21z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path fill="currentColor" d="M9 8.2c0 3.600 3.200 6.800 6.800 6.800l1.200-1.400-2.100-1-1 .9c-1-.4-2-1.300-2.400-2.300l.9-1-1-2.100L9 8.200z"/></svg>';
+
 const K = 'Kontaktdaten';
 const contact = {
   firma: raw(K, 'Firma'), inhaber: raw(K, 'Inhaber'), rechtsform: raw(K, 'Rechtsform'),
   strasse: raw(K, 'Straße und Hausnummer'), ort: raw(K, 'PLZ und Ort'), tel: raw(K, 'Telefon'),
-  mail: raw(K, 'E-Mail'), ig: raw(K, 'Instagram-Link'), fb: raw(K, 'Facebook-Link'),
+  mail: raw(K, 'E-Mail'), wa: raw(K, 'WhatsApp anzeigen').toLowerCase(), ig: raw(K, 'Instagram-Link'), fb: raw(K, 'Facebook-Link'),
 };
 if (!contact.mail) warn('Die E-Mail-Adresse ist noch leer – auf der Seite erscheint ein [PLATZHALTER].');
+// WhatsApp link is derived from the phone number (wa.me needs digits only, with country code).
+const waDigits = contact.tel.replace(/[^0-9]/g, '');
+const showWa = contact.wa !== 'nein' && waDigits.length >= 8;
+if (contact.wa !== 'nein' && !showWa) warn('WhatsApp: keine gültige Telefonnummer – WhatsApp-Link wird nicht angezeigt.');
 for (const [k, v] of [['Instagram-Link', contact.ig], ['Facebook-Link', contact.fb]]) {
   if (v && !/^https:\/\//.test(v)) fail(`[Kontaktdaten] "${k}" muss mit https:// beginnen.`);
 }
@@ -84,6 +90,7 @@ function socialList(lang, indent) {
   const u = UI[lang]; const items = [];
   if (contact.ig) items.push(`<li><a href="${esc(contact.ig)}" target="_blank" rel="noopener noreferrer">${ICON_IG}<span>Instagram</span><span class="sr">${u.newtab}</span></a></li>`);
   if (contact.fb) items.push(`<li><a href="${esc(contact.fb)}" target="_blank" rel="noopener noreferrer">${ICON_FB}<span>Facebook</span><span class="sr">${u.newtab}</span></a></li>`);
+  if (showWa) items.push(`<li><a href="https://wa.me/${waDigits}" target="_blank" rel="noopener noreferrer">${ICON_WA}<span>WhatsApp</span><span class="sr">${u.newtab}</span></a></li>`);
   if (!items.length) return '';
   return `${indent}<ul class="social" aria-label="${u.social_label}">\n${items.map((i) => `${indent}  ${i}`).join('\n')}\n${indent}</ul>`;
 }

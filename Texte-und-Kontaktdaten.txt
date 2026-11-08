@@ -21,15 +21,16 @@ Rechtsform: Kleinunternehmen
 Straße und Hausnummer: Lauerbacher Weg 19
 PLZ und Ort: 64711 Erbach
 Telefon: +491604612442
-# Die E-Mail-Adresse fehlt noch. Bitte eintragen:
-E-Mail:
+# WhatsApp läuft über dieselbe Nummer (mit Ländervorwahl, z.B. +49...). "ja" zeigt den WhatsApp-Knopf, "nein" blendet ihn aus.
+WhatsApp anzeigen: ja
+E-Mail: mischka.odenwald@mail.de
 Instagram-Link: https://www.instagram.com/mischka_odenwald
 Facebook-Link: https://www.facebook.com/mischka.odenwald
 
 
 [Webseite]
 # Der Name oben links in der Kopfzeile und als große Überschrift (gilt für Deutsch und Russisch).
-Name: Mischka Odenwald
+Name: mischka_odenwald
 # Erscheint im Browser-Tab und bei Google.
 Titel Deutsch: mischka_odenwald – der tanzende Bär für Ihre Feier
 Titel Russisch: mischka_odenwald – танцующий медведь на ваш праздник
@@ -39,8 +40,8 @@ Beschreibung Russisch: mischka_odenwald: танцующий медведь, фи
 
 [Startseite]
 # Der Text ganz oben unter dem Namen.
-Willkommenstext Deutsch: xxxxDer tanzende Bär für Ihre Feier – mit Musik, Ballonfiguren und guter Laune.
-Willkommenstext Russisch: Танцующий медведь для вашего праздника – с музыкой, фигурками из шаров и хорошим настроением.
+Willkommenstext Deutsch: Personalisierte Geburtstagsüberraschungen und individuelle Programme für Kinder, Jugendliche und Erwachsene.
+Willkommenstext Russisch: Индивидуальные программы на дни рождения и праздники для детей, подростков и взрослых..
 Knopf Deutsch: Jetzt anfragen
 Knopf Russisch: Оставить заявку
 Hinweis Deutsch: Figur antippen für Details
@@ -56,50 +57,50 @@ Hinweis Russisch: Нажмите на персонажа, чтобы узнат�
 [Figur 1]
 Name Deutsch: Mischka
 Name Russisch: Мишка
-Text Deutsch: [Platzhalter] Hier steht bald eine kurze Beschreibung von Mischka: Kostüm, Programm und für welche Feier die Figur passt.
-Text Russisch: [Заглушка] Здесь скоро появится краткое описание: Мишка – костюм, программа и для какого праздника подходит персонаж.
+Text Deutsch: Mischka Teddy tanzt, gratuliert und schenkt Umarmungen und gute Laune!
+Text Russisch: Мишка поздравляет с днём рождения, танцует, обнимает, дарит хорошее настроение. Порадует взрослых и детей!
 Bild: figure-mischka-1.png
 
 [Figur 2]
-Name Deutsch: Lola
-Name Russisch: Лола
-Text Deutsch: [Platzhalter] Hier steht bald eine kurze Beschreibung von Lola: Kostüm, Programm und für welche Feier die Figur passt.
-Text Russisch: [Заглушка] Здесь скоро появится краткое описание: Лола – костюм, программа и для какого праздника подходит персонаж.
+Name Deutsch: LOL
+Name Russisch: LOL
+Text Deutsch: Puppe LOL bringt Musik, Tänze und unvergessliche Emotionen!
+Text Russisch: Кукла LOL приносит на праздник музыку, танцы и незабываемые эмоции!
 Bild: figure-lola-1.png
 
 [Figur 3]
 Name Deutsch: Asti
 Name Russisch: Асти
-Text Deutsch: [Platzhalter] Hier steht bald eine kurze Beschreibung von Asti: Kostüm, Programm und für welche Feier die Figur passt.
-Text Russisch: [Заглушка] Здесь скоро появится краткое описание: Асти – костюм, программа и для какого праздника подходит персонаж.
+Text Deutsch: Asti - strahlendes Musiksternchen, schenkt Party Laune mit bekannten Songs und unvergessliche Momente!
+Text Russisch: Асти - яркая музыкальная звезда, подарит праздничное настроение, любимые песни и незабываемые эмоции!
 Bild: figure-asti-red.png
 
 [Figur 4]
 Name Deutsch: Stas
 Name Russisch: Стас
-Text Deutsch: [Platzhalter] Hier steht bald eine kurze Beschreibung von Stas: Kostüm, Programm und für welche Feier die Figur passt.
-Text Russisch: [Заглушка] Здесь скоро появится краткое описание: Стас – костюм, программа и для какого праздника подходит персонаж.
+Text Deutsch: Stas - Liebling aller Frauen singt, gratuliert und tritt professionell auf (Geburtstagsüberraschung mit dem gewissen Etwas)!
+Text Russisch: Стас - любимчик всех женщин споёт, поздравит и профессионально выступит (поздравление с изюминкой)!
 Bild: figure-stas-1.png
 
 [Figur 5]
 Name Deutsch: Tscheburaschka
 Name Russisch: Чебурашка
-Text Deutsch: [Platzhalter] Hier steht bald eine kurze Beschreibung von Tscheburaschka: Kostüm, Programm und für welche Feier die Figur passt.
-Text Russisch: [Заглушка] Здесь скоро появится краткое описание: Чебурашка – костюм, программа и для какого праздника подходит персонаж.
+Text Deutsch: Tscheburaschka - lustiges Kuscheltier schenkt Freude, Gelächter und Superlaune!
+Text Russisch: Чебурашка - любимый всеми герой мультфильмов принесёт радость, смех и отличное настроение!
 Bild: figure-cheburashka-1.png
 
 [Figur 6]
 Name Deutsch: Panda
 Name Russisch: Панда
-Text Deutsch: [Platzhalter] Hier steht bald eine kurze Beschreibung von Panda: Kostüm, Programm und für welche Feier die Figur passt.
-Text Russisch: [Заглушка] Здесь скоро появится краткое описание: Панда – костюм, программа и для какого праздника подходит персонаж.
+Text Deutsch: Panda - riesiges Kuscheltier bringt Geschenke und Umarmungen für alle!
+Text Russisch: Панда - мягкий весёлый персонаж принесёт подарки и обинмашки для всех!
 Bild: figure-panda-blackwhite-1.png
 
 [Figur 7]
-Name Deutsch: Minecraft-Figur
-Name Russisch: Майнкрафт
-Text Deutsch: [Platzhalter] Hier steht bald eine kurze Beschreibung von Minecraft-Figur: Kostüm, Programm und für welche Feier die Figur passt.
-Text Russisch: [Заглушка] Здесь скоро появится краткое описание: Майнкрафт – костюм, программа и для какого праздника подходит персонаж.
+Name Deutsch: Steve
+Name Russisch: Стив
+Text Deutsch: Steve - bringt Geschichten aus Minecraft in die reale Welt!
+Text Russisch: Стив - перенесёт истории из Minecraft прямо в реальность на вашем празднике!
 Bild: figure-minecraft-guy-1.png
 
 
@@ -151,5 +152,5 @@ Text Russisch: С Мишкой могут веселиться и взрослы
 Überschrift Russisch: Контакты и заявка
 Einleitung Deutsch: Schreiben Sie uns oder rufen Sie an – wir melden uns zu Termin und Preis.
 Einleitung Russisch: Напишите или позвоните нам – мы ответим по дате и стоимости.
-Soziale Medien Deutsch: Mehr Bilder und Neuigkeiten finden Sie auch bei Instagram und Facebook:
-Soziale Medien Russisch: Больше фото и новостей – в Instagram и Facebook:
+Soziale Medien Deutsch: Mehr Bilder und Neuigkeiten finden Sie auch bei Instagram und Facebook – oder schreiben Sie uns direkt per WhatsApp:
+Soziale Medien Russisch: Больше фото и новостей – в Instagram и Facebook – или напишите нам в WhatsApp:

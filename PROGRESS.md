@@ -43,6 +43,11 @@ rewriting the list.
 
 ## Decisions log (append-only, newest first)
 
+- 2026-11-08 — WhatsApp added to the social links: `https://wa.me/<digits of Telefon>`, derived
+  automatically; `WhatsApp anzeigen: ja/nein` in the text file switches it. Icon is inline SVG.
+  Datenschutz note and the social intro text now mention WhatsApp (legal wording still to be
+  reviewed). The e-mail address was filled in by the human in the text file.
+
 - 2026-11-08 — Favicon: schematic Mischka (flat bear head on a yellow disc) as
   `assets/img/icon-mischka-favicon.svg` + 32px PNG + 180px apple-touch (square yellow bg).
   Fur colors are a **guess from sampled pixel averages** of `figure-mischka-1.png` (I cannot
