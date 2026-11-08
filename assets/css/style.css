@@ -155,3 +155,15 @@ a.tile:hover, a.tile:focus-visible { border-color: var(--gold); transform: trans
   .js-tabs .arc li, .js-tabs .fig.is-active { animation: none; }
   .orb-disc, .tile, .soc { transition: none; }
 }
+
+/* Center orb (e.g. balloon bouquets): sits in the middle of the half circle, between the top
+   figure and the detail card. Photo fills the disc instead of the cut-out crop. */
+.arc li.is-center {
+  --csize: calc(var(--size) * 1.2);
+  width: var(--csize); left: 50%; top: calc(var(--size) / 2 + var(--R) * .44);
+}
+.is-center .orb-disc { width: var(--csize); height: var(--csize); }
+.is-center .orb-disc img { transform: none; object-position: 50% 50%; }
+@media (max-width: 39.99em) {
+  .arc li.is-center { top: calc(var(--size) / 2 + var(--R) * .54); }
+}

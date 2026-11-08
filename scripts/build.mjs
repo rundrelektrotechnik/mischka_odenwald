@@ -114,9 +114,13 @@ function mainPage(lang) {
   const orbs = figs.map((s, k) => {
     const img = raw(s, 'Bild');
     if (!existsSync(join(root, 'assets', 'img', img))) fail(`[${s}] "Bild: ${img}" – diese Datei gibt es nicht im Ordner assets/img.`);
-    return { id: `fig-${k + 1}`, img, name: tx(s, 'Name', lang), text: tx(s, 'Text', lang) };
+    return { id: `fig-${k + 1}`, center: raw(s, 'Position').toLowerCase() === 'mitte', img, name: tx(s, 'Name', lang), text: tx(s, 'Text', lang) };
   });
-  const orbHtml = orbs.map((o, k) => `          <li style="--i:${k}"><a class="orb" href="#${o.id}" data-fig="${k + 1}"${k === 0 ? ' aria-current="true"' : ''}><span class="orb-disc"><img src="assets/img/${esc(o.img)}" alt="" loading="${k < 4 ? 'eager' : 'lazy'}" decoding="async"></span><span class="orb-name">${esc(o.name)}</span></a></li>`).join('\n');
+  const arcOrbs = orbs.filter((o) => !o.center);
+  if (!arcOrbs.length) fail('Mindestens eine Figur muss im Halbkreis stehen (ohne "Position: Mitte").');
+  const orbLi = (o, k, extra) => `          <li${extra ? ` class="${extra}"` : ''} style="--i:${k}"><a class="orb" href="#${o.id}" data-fig="${o.id.slice(4)}"${o === arcOrbs[0] ? ' aria-current="true"' : ''}><span class="orb-disc"><img src="assets/img/${esc(o.img)}" alt="" loading="${k < 4 ? 'eager' : 'lazy'}" decoding="async"></span><span class="orb-name">${esc(o.name)}</span></a></li>`;
+  // Arc figures first, then any "Position: Mitte" figure (placed in the middle of the half circle by CSS).
+  const orbHtml = [...arcOrbs.map((o, k) => orbLi(o, k)), ...orbs.filter((o) => o.center).map((o) => orbLi(o, arcOrbs.length, 'is-center'))].join('\n');
   const detailHtml = orbs.map((o) => `          <article class="fig" id="${o.id}">
             <img src="assets/img/${esc(o.img)}" alt="${esc(o.name)}" loading="lazy" decoding="async">
             <div><h3>${esc(o.name)}</h3><p class="placeholder-text">${esc(o.text)}</p></div>
@@ -133,7 +137,7 @@ function mainPage(lang) {
     de_attrs: lang === 'de' ? ' aria-current="true"' : ' hreflang="de"',
     ru_attrs: lang === 'ru' ? ' aria-current="true"' : ' hreflang="ru"',
     welcome: esc(tx('Startseite', 'Willkommenstext', lang)), cta: esc(tx('Startseite', 'Knopf', lang)), hint: esc(tx('Startseite', 'Hinweis', lang)),
-    step: figs.length > 1 ? +(180 / (figs.length - 1)).toFixed(3) : 0,
+    step: arcOrbs.length > 1 ? +(180 / (arcOrbs.length - 1)).toFixed(3) : 0,
     orbs: orbHtml, details: detailHtml,
     offer_heading: esc(tx('Angebot', 'Überschrift', lang)), offer_cards: cards,
     who_heading: esc(tx('Für wen', 'Überschrift', lang)), who_articles: who,

@@ -124,8 +124,8 @@ Text Russisch: Каждый персонаж принесёт букет из в
 [Angebot 3]
 Titel Deutsch: Spiele & Mitmachen
 Titel Russisch: Игры и мыльные пузыри
-Text Deutsch: Spiele, Seifenblasen und Zeit für Fotos mit Mischka.
-Text Russisch: Игры, мыльные пузыри и время для фото с Мишкой.
+Text Deutsch: Spiele, Seifenblasen und Zeit für Fotos mit Mischka. Individuelles Programm nach Absprache.
+Text Russisch: Игры, мыльные пузыри и время для фото с Мишкой. Индивидуальная программа обговаривается заранее.
 
 
 [Für wen]
@@ -133,16 +133,16 @@ Text Russisch: Игры, мыльные пузыри и время для фот
 Überschrift Russisch: Для кого?
 
 [Zielgruppe 1]
-Titel Deutsch: Kinder- und Geburtstagsfeiern
-Titel Russisch: Детские праздники и дни рождения
-Text Deutsch: Kinderfreundliche Kostüme, viel Bewegung und Staunen – der Hauptfall bei Mischka.
-Text Russisch: Дружелюбные детские костюмы, много движения и удивления – это главное направление Мишки.
+Titel Deutsch: Feiern für Kinder
+Titel Russisch: Праздники для детей
+Text Deutsch: Kinderfreundliche Kostüme, viel Bewegung und Emotionen – die Hauptattraktion bei Mischka.
+Text Russisch: Дружелюбные детские костюмы, много движения и эмоций – это главное направление Мишки.
 
 [Zielgruppe 2]
 Titel Deutsch: Feiern für Erwachsene
 Titel Russisch: Праздники для взрослых
-Text Deutsch: Auch Erwachsene feiern mit Mischka: Die Themen sind erwachsener, im Kern bleibt es unschuldiger Tanzspaß.
-Text Russisch: С Мишкой могут веселиться и взрослые: темы взрослее, но по сути это по-прежнему невинные танцы.
+Text Deutsch: Auch Erwachsene feiern mit Mischka und anderen Personagen - unvergessliche Momente und positive Emotionen garantiert.
+Text Russisch: С Мишкой и другими персонажами могут веселиться и взрослые - останутся незабываемые впечатления и положительные эмоции.
 
 
 [Kontakt]
@@ -150,3 +150,12 @@ Text Russisch: С Мишкой могут веселиться и взрослы
 Überschrift Russisch: Контакты и заявка
 Einleitung Deutsch: Schreiben Sie uns oder rufen Sie an – wir melden uns zu Termin und Preis.
 Einleitung Russisch: Напишите или позвоните нам – мы ответим по дате и стоимости.
+
+# Ballonbouquets: "Position: Mitte" setzt diesen Kreis in die Mitte des Halbkreises (über dem Text).
+[Figur 8]
+Name Deutsch: Ballonbouquets
+Name Russisch: Букеты из шаров
+Text Deutsch: [Platzhalter] Hier steht bald eine kurze Beschreibung der Ballonbouquets: Größen, Farben und Anlässe.
+Text Russisch: [Заглушка] Здесь скоро появится краткое описание букетов из шаров: размеры, цвета и поводы.
+Bild: photo-balloon-bouquet-1.jpg
+Position: Mitte

@@ -43,6 +43,14 @@ rewriting the list.
 
 ## Decisions log (append-only, newest first)
 
+- 2026-11-08 — New customer photo `balloon-bouquet-photo.jpg` (JPG with background, 1080x1439):
+  used as a **circle crop** (not a true cut-out — no background removal, and I cannot see the
+  image) in an extra orb in the **middle of the half circle**, between the top figure (Stas) and
+  the detail card. Resized copy `assets/img/photo-balloon-bouquet-1.jpg` (640px). In the text file
+  it is `[Figur 8]` with `Position: Mitte`; such figures are excluded from the arc spacing. The
+  crop is centered (`object-position: 50% 50%`) — human must check the framing, and supply a
+  real cut-out PNG if a yellow-disc look is wanted.
+
 - 2026-11-08 — Contact socials changed to **icon-only**: round yellow icon buttons
   (WhatsApp, Instagram, Facebook; name as screen-reader text + tooltip) in a row below the
   e-mail/phone tiles. Supersedes the compact social tiles from earlier today.
