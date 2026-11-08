@@ -152,6 +152,8 @@ Einleitung Deutsch: Schreiben Sie uns oder rufen Sie an – wir melden uns zu Te
 Einleitung Russisch: Напишите или позвоните нам – мы ответим по дате и стоимости.
 
 # Ballonbouquets: "Position: Mitte" setzt diesen Kreis in die Mitte des Halbkreises (über dem Text).
+# "Anzeigen: nein" = vorerst NICHT auf der Seite zeigen (bis ein besseres Bild da ist).
+# "Anzeigen: ja" oder die Zeile löschen = anzeigen.
 [Figur 8]
 Name Deutsch: Ballonbouquets
 Name Russisch: Букеты из шаров
@@ -159,3 +161,4 @@ Text Deutsch: [Platzhalter] Hier steht bald eine kurze Beschreibung der Ballonbo
 Text Russisch: [Заглушка] Здесь скоро появится краткое описание букетов из шаров: размеры, цвета и поводы.
 Bild: photo-balloon-bouquet-1.jpg
 Position: Mitte
+Anzeigen: nein

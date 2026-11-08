@@ -109,7 +109,8 @@ function contactTiles(lang) {
 // ---- main pages -------------------------------------------------------------
 function mainPage(lang) {
   const u = UI[lang]; const other = lang === 'de' ? 'ru' : 'de';
-  const figs = numbered('Figur');
+  // A figure block with "Anzeigen: nein" stays in the text file but is not shown on the page.
+  const figs = numbered('Figur').filter((s) => (data[s].Anzeigen || '').toLowerCase() !== 'nein');
   if (!figs.length) fail('Es gibt keine Figur. Bitte mindestens einen Block [Figur 1] anlegen.');
   const orbs = figs.map((s, k) => {
     const img = raw(s, 'Bild');
@@ -153,7 +154,16 @@ function legalVars() {
   addr.push(orPH(contact.strasse, 'Straße und Hausnummer'), orPH(contact.ort, 'PLZ Ort'));
   if (contact.rechtsform) addr.push(`Rechtsform: ${esc(contact.rechtsform)}`);
   const lines = `E-Mail: ${orPH(contact.mail, 'E-Mail-Adresse')}<br>\n      Telefon: ${orPH(contact.tel, 'Telefonnummer')}`;
+  const de = (a) => (a.length > 1 ? a.slice(0, -1).join(', ') + ' und ' + a[a.length - 1] : a[0] || '');
+  const deOr = (a) => (a.length > 1 ? a.slice(0, -1).join(', ') + ' oder ' + a[a.length - 1] : a[0] || '');
+  const channels = [contact.mail && 'E-Mail', contact.tel && 'Telefon', showWa && 'WhatsApp'].filter(Boolean);
+  const nets = [contact.ig && 'Instagram', contact.fb && 'Facebook', showWa && 'WhatsApp'].filter(Boolean);
+  const socialSection = nets.length ? `    <h2>Links zu sozialen Netzwerken und Messengern</h2>
+    <p>Die Seite verlinkt auf ${de(nets)}. Es werden keine Inhalte dieser Dienste eingebunden; Daten werden erst übertragen, wenn Sie einen Link anklicken und die jeweilige Seite bzw. App öffnen. Dort gelten die Datenschutzbestimmungen des Anbieters.
+      <span class="placeholder">[Rechtlich prüfen lassen]</span></p>
+` : '';
   return {
+    channels: deOr(channels), social_section: socialSection,
     imprint_address: `    <p>\n      ${addr.join('<br>\n      ')}\n    </p>`,
     imprint_contact: `    <p>\n      ${lines}\n    </p>`,
     site_name: esc(raw('Webseite', 'Name')),

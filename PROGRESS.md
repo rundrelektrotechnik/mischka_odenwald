@@ -43,6 +43,15 @@ rewriting the list.
 
 ## Decisions log (append-only, newest first)
 
+- 2026-11-08 — Balloon bouquet orb **hidden for now** until the customer supplies a proper
+  cut-out: `[Figur 8]` in the text file has `Anzeigen: nein` (any figure block supports it;
+  "ja"/delete the line to show). Block and image stay in place. Impressum/Datenschutz re-checked
+  against the newest data: address, Inhaber/in, phone and e-mail come from the text file; the
+  Datenschutz contact sentence and the social-links section are now generated from the channels
+  actually shown (E-Mail, Telefon, WhatsApp / Instagram, Facebook, WhatsApp). Still open for
+  legal review: "Rechtsform: Kleinunternehmen" is a tax status rather than a legal form —
+  confirm wording (e.g. "Einzelunternehmen"/Kleinunternehmer § 19 UStG); hosting section.
+
 - 2026-11-08 — New customer photo `balloon-bouquet-photo.jpg` (JPG with background, 1080x1439):
   used as a **circle crop** (not a true cut-out — no background removal, and I cannot see the
   image) in an extra orb in the **middle of the half circle**, between the top figure (Stas) and
