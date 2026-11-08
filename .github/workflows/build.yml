@@ -1,6 +1,6 @@
-# Builds the production website on every change and keeps it as a downloadable artifact.
-# It does NOT publish anything anywhere (no domain or hosting yet).
-name: Webseite bauen
+# Builds the website on every change. On main it also publishes it to GitHub Pages
+# (https://mischka-odenwald.de once the domain is connected). Pull requests only build.
+name: Webseite bauen und veröffentlichen
 
 on:
   push:
@@ -10,6 +10,10 @@ on:
 
 permissions:
   contents: read
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
 
 jobs:
   build:
@@ -23,6 +27,7 @@ jobs:
       # that every link and image resolves; the job fails (red) if not.
       - name: Webseite bauen
         run: npm run build:prod
+      # Plain ZIP for download (Actions tab -> run -> Artifacts -> webseite).
       - name: Fertige Webseite als Download bereitstellen
         uses: actions/upload-artifact@v4
         with:
@@ -30,3 +35,25 @@ jobs:
           path: dist/site
           if-no-files-found: error
           retention-days: 30
+      # The same files in the format GitHub Pages needs (only used by the deploy job).
+      - name: Für GitHub Pages vorbereiten
+        if: github.event_name != 'pull_request'
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist/site
+
+  deploy:
+    # Only from main (never from pull requests). Needs Settings -> Pages -> Source: GitHub Actions.
+    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Auf GitHub Pages veröffentlichen
+        id: deployment
+        uses: actions/deploy-pages@v4

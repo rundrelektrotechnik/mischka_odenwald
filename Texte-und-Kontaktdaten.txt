@@ -28,9 +28,9 @@ Instagram-Link: https://www.instagram.com/mischka_odenwald
 Facebook-Link: https://www.facebook.com/mischka.odenwald
 # Die Internetadresse der Seite (Domain), erscheint im Impressum:
 Domain: mischka-odenwald.de
-# Wo die Seite liegt (Hosting-Firma, z. B. Strato) – steht in der Datenschutzerklärung. Noch offen:
-Hoster:
-Hoster Anschrift:
+# Wo die Seite liegt (Hosting-Firma) – steht in der Datenschutzerklärung. Aktuell: GitHub Pages.
+Hoster: GitHub Inc.
+Hoster Anschrift: 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, USA
 
 
 [Webseite]

@@ -32,7 +32,7 @@ Mehr Hinweise stehen als Kommentare (Zeilen mit `#`) am Anfang der Textdatei.
 Nicht in der Textdatei: die festen Rechtstexte (Impressum und Datenschutz). Nur die Angaben
 daraus, wie Adresse und Telefon, kommen aus der Datei.
 
-## Die fertige Webseite ansehen / herunterladen
+## Die fertige Webseite als Datei herunterladen (optional)
 
 1. Oben auf **„Actions“** klicken.
 2. Den obersten Eintrag („Webseite bauen“) öffnen.
@@ -44,10 +44,11 @@ daraus, wie Adresse und Telefon, kommen aus der Datei.
 
 ## Stand
 
-- Die Webseite ist **noch nicht online**: Es gibt noch keine Domain und keinen Hosting-Anbieter.
-  Sobald beides feststeht, wird die fertige Webseite dort hochgeladen.
-- **Noch offen:** Hosting-Anbieter (für die Datenschutzerklärung), ein besseres Bild für die
-  Ballonbouquets (derzeit versteckt), Beschreibungstexte der Figuren.
+- Die Webseite wird bei **GitHub Pages** veröffentlicht, die Adresse ist **mischka-odenwald.de**
+  (Domain bei Squarespace). Jede Änderung an der Textdatei wird nach wenigen Minuten
+  automatisch online gestellt – unter „Actions“ sieht man, ob es geklappt hat.
+- **Noch offen:** Beschreibungstexte der Figuren, ein besseres Bild für die Ballonbouquets
+  (derzeit versteckt).
 
 ## Für Entwickler (kurz)
 
