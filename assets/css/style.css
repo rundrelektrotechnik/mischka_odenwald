@@ -45,18 +45,8 @@ h1 { font-size: clamp(2.25rem, 8vw, 4rem); margin: 0 0 .5rem; color: var(--gold)
 h2 { font-size: 1.75rem; margin: 0 0 1rem; border-bottom: 3px solid var(--red); display: inline-block; padding-bottom: .15rem; }
 h3 { font-size: 1.2rem; margin: 0 0 .4rem; }
 
-.hero {
-  display: grid; gap: 1.5rem; align-items: center; text-align: center;
-  padding-top: 2.5rem; padding-bottom: 1rem;
-}
-.hero-img { width: min(70%, 22rem); height: auto; margin: 0 auto; justify-self: center; filter: drop-shadow(0 12px 24px rgba(0,0,0,.45)); }
 .stroke { display: block; width: min(80%, 26rem); height: auto; margin: 0 auto; opacity: .9; }
 .lead { font-size: 1.25rem; color: var(--muted); max-width: 36rem; margin: 0 auto 1.5rem; }
-@media (min-width: 48em) {
-  .hero { grid-template-columns: 1.1fr .9fr; text-align: left; padding-top: 3.5rem; }
-  .hero .lead { margin-left: 0; }
-  .hero-img { width: 100%; max-height: 34rem; object-fit: contain; }
-}
 .button {
   display: inline-block; padding: .75rem 1.75rem; border-radius: 999px;
   background: var(--gold); color: #1b1426; font-weight: 700; text-decoration: none;
@@ -83,4 +73,79 @@ footer { text-align: center; padding: 2rem 1.25rem; border-top: 1px solid var(--
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .js .reveal { opacity: 1; transform: none; transition: none; }
+}
+
+/* ---- Half-moon figure stage ------------------------------------------------
+   Seven figure orbs (yellow disc + cut-out figure) sit on a half circle; the
+   detail card nests below/inside the arc. CSS trig + container units keep the
+   geometry scaling with the stage width. */
+:root { --yellow: #f5c630; --yellow-soft: #ffe27a; }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+
+.stage { text-align: center; padding-top: 2rem; padding-bottom: 1rem; }
+.stage-intro .lead { margin-bottom: 1rem; }
+.moon {
+  container-type: inline-size; width: min(100%, 46rem); margin: 0 auto; position: relative;
+  --size: clamp(3.5rem, 13cqw, 6.5rem);
+  --R: calc((100cqw - var(--size)) / 2);
+  --step: 30deg; /* 180deg / (7 figures - 1) */
+}
+.arc { list-style: none; margin: 0; padding: 0; position: relative; height: calc(var(--R) + var(--size) + 1.75rem); }
+.arc li {
+  --a: calc(180deg - var(--i) * var(--step));
+  position: absolute;
+  left: calc(50% + var(--R) * cos(var(--a)));
+  top: calc(var(--size) / 2 + var(--R) * (1 - sin(var(--a))));
+  width: var(--size); transform: translate(-50%, -50%);
+}
+.orb { position: relative; display: block; text-decoration: none; color: var(--text); }
+.orb-disc {
+  width: var(--size); height: var(--size); border-radius: 50%; overflow: hidden; display: block;
+  background: radial-gradient(circle at 35% 28%, var(--yellow-soft), var(--yellow) 65%);
+  border: 3px solid var(--gold); box-shadow: 0 6px 16px rgba(0,0,0,.4);
+  transition: transform .35s cubic-bezier(.3,1.4,.5,1), box-shadow .35s ease, border-color .35s ease;
+}
+.orb-disc img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 6%; transform: scale(1.25); transform-origin: 50% 12%; display: block; }
+.orb-name { position: absolute; clip-path: inset(50%); width: 1px; height: 1px; overflow: hidden; top: 100%; left: 50%; translate: -50% .3rem; font-size: .85rem; color: var(--muted); transition: color .3s ease; white-space: nowrap; }
+.orb:hover .orb-disc, .orb:focus-visible .orb-disc { transform: translateY(-4px) scale(1.06); border-color: #fff3c4; }
+.orb:focus-visible { outline: 3px solid var(--gold); outline-offset: 6px; border-radius: 12px; }
+.orb[aria-current="true"] .orb-disc { transform: scale(1.12); border-color: #fff3c4; box-shadow: 0 0 0 4px rgba(217,174,74,.35), 0 8px 22px rgba(0,0,0,.5); }
+.orb[aria-current="true"] .orb-name { color: var(--gold); }
+.moon-hint { display: none; margin: 0 0 .75rem; color: var(--muted); font-size: .9rem; }
+
+.detail { max-width: 34rem; margin: 0 auto; text-align: left; }
+.fig { display: grid; grid-template-columns: 6rem 1fr; gap: 1rem; align-items: center; background: var(--bg-soft); border-radius: var(--radius); padding: 1.25rem; border-top: 4px solid var(--gold); margin-bottom: 1rem; }
+.fig img { width: 100%; height: auto; max-height: 12rem; object-fit: contain; }
+.fig h3 { color: var(--gold); }
+.fig p { margin: 0; color: var(--muted); }
+.placeholder-text { font-style: italic; }
+/* With JS only the chosen card shows; without JS all cards stay visible. */
+.js-tabs .moon-hint { display: block; }
+.js-tabs .fig:not(.is-active) { display: none; }
+.js-tabs .fig.is-active { animation: fig-in .45s ease both; }
+@keyframes fig-in { from { opacity: 0; transform: translateY(10px) scale(.98); } to { opacity: 1; transform: none; } }
+.stage-cta { margin: 1.25rem 0 0; }
+
+/* Wide screens: tuck the hint + card up into the half circle. */
+@media (min-width: 40em) {
+  .arc { height: calc(var(--R) + var(--size) + 2.25rem); }
+  .orb-name { clip-path: none; width: auto; height: auto; overflow: visible; }
+  .js-tabs .arc { margin-bottom: calc(var(--R) * -0.5); }
+  .detail { max-width: 26rem; }
+}
+
+/* Staggered entrance: orbs rise along the arc. */
+.js-tabs .arc li { animation: orb-in .6s cubic-bezier(.3,1.3,.5,1) both; animation-delay: calc(var(--i) * 70ms); }
+@keyframes orb-in { from { opacity: 0; transform: translate(-50%, -30%) scale(.7); } to { opacity: 1; transform: translate(-50%, -50%); } }
+
+/* Social links */
+.social-intro { margin: 1.5rem 0 .5rem; color: var(--muted); }
+.social { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: .75rem; justify-content: inherit; }
+.social a { display: inline-flex; align-items: center; gap: .5rem; padding: .5rem 1rem; border: 1px solid var(--gold); border-radius: 999px; color: var(--text); text-decoration: none; transition: background .25s ease, color .25s ease, transform .25s ease; }
+.social a:hover, .social a:focus-visible { background: var(--gold); color: #1b1426; transform: translateY(-2px); }
+footer .social { width: 100%; justify-content: center; }
+
+@media (prefers-reduced-motion: reduce) {
+  .js-tabs .arc li, .js-tabs .fig.is-active { animation: none; }
+  .orb-disc, .social a { transition: none; }
 }
