@@ -129,7 +129,12 @@ function seoTags(lang) {
     `<meta property="og:url" content="${pageUrl[lang]}">`,
     `<meta property="og:locale" content="${lang === 'de' ? 'de_DE' : 'ru_RU'}">`,
     `<meta property="og:locale:alternate" content="${other === 'de' ? 'de_DE' : 'ru_RU'}">`,
-    `<meta name="twitter:card" content="summary">`,
+    `<meta property="og:image" content="${base}/assets/img/og-mischka-odenwald.jpg">`,
+    `<meta property="og:image:width" content="1200">`,
+    `<meta property="og:image:height" content="630">`,
+    `<meta property="og:image:alt" content="${esc(raw('Webseite', 'Name'))}">`,
+    `<meta name="twitter:card" content="summary_large_image">`,
+    `<meta name="twitter:image" content="${base}/assets/img/og-mischka-odenwald.jpg">`,
   ];
   // Structured data (LocalBusiness) from the same contact data as the Impressum.
   const m = contact.ort.match(/^(\d{5})\s+(.+)$/);
