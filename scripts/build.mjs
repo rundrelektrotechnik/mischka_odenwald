@@ -74,6 +74,7 @@ const contact = {
   firma: raw(K, 'Firma'), inhaber: raw(K, 'Inhaber'), rechtsform: raw(K, 'Rechtsform'),
   strasse: raw(K, 'Straße und Hausnummer'), ort: raw(K, 'PLZ und Ort'), tel: raw(K, 'Telefon'),
   mail: raw(K, 'E-Mail'), wa: raw(K, 'WhatsApp anzeigen').toLowerCase(), ig: raw(K, 'Instagram-Link'), fb: raw(K, 'Facebook-Link'),
+  domain: raw(K, 'Domain').replace(/^https?:\/\//, '').replace(/\/+$/, ''),
 };
 if (!contact.mail) warn('Die E-Mail-Adresse ist noch leer – auf der Seite erscheint ein [PLATZHALTER].');
 // WhatsApp link is derived from the phone number (wa.me needs digits only, with country code).
@@ -157,7 +158,8 @@ function legalVars() {
   addr.push(orPH(contact.strasse, 'Straße und Hausnummer'), orPH(contact.ort, 'PLZ Ort'));
   if (contact.rechtsform && !small) addr.push(`Rechtsform: ${esc(contact.rechtsform)}`);
   const lines = `E-Mail: ${orPH(contact.mail, 'E-Mail-Adresse')}<br>
-      Telefon: ${orPH(contact.tel, 'Telefonnummer')}`;
+      Telefon: ${orPH(contact.tel, 'Telefonnummer')}${contact.domain ? `<br>
+      Website: <a href="https://${esc(contact.domain)}">${esc(contact.domain)}</a>` : ''}`;
   const de = (a) => (a.length > 1 ? a.slice(0, -1).join(', ') + ' und ' + a[a.length - 1] : a[0] || '');
   const deOr = (a) => (a.length > 1 ? a.slice(0, -1).join(', ') + ' oder ' + a[a.length - 1] : a[0] || '');
   const channels = [contact.mail && 'E-Mail', contact.tel && 'Telefon', showWa && 'WhatsApp'].filter(Boolean);
@@ -174,7 +176,9 @@ function legalVars() {
 
   const hoster = raw(K, 'Hoster'); const hosterAdr = raw(K, 'Hoster Anschrift');
   if (!hoster) warn('Der Hoster (Firma, bei der die Seite liegt) fehlt – in der Datenschutzerklärung steht ein [PLATZHALTER].');
-  const hosting = `    <p>Diese Seite wird bei ${hoster ? esc(hoster) + (hosterAdr ? ' (' + esc(hosterAdr) + ')' : '') : PH('[PLATZHALTER: Hosting-Anbieter mit Anschrift]')} betrieben. Beim Aufruf der Seite verarbeitet der Hoster technisch notwendige Daten in Server-Logdateien, insbesondere IP-Adresse, Datum und Uhrzeit, aufgerufene Seite, übertragene Datenmenge sowie Browser- und Betriebssystemangaben. Das ist nötig, um die Seite auszuliefern und sicher zu betreiben. Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an einer sicheren und fehlerfreien Bereitstellung). Die Logdaten werden nach kurzer Zeit gelöscht; soweit erforderlich, besteht mit dem Hoster ein Vertrag zur Auftragsverarbeitung nach Art. 28 DSGVO.</p>`;
+  const hosting = `    <p>Diese Seite wird bei ${hoster ? esc(hoster) + (hosterAdr ? ' (' + esc(hosterAdr) + ')' : '') : PH('[PLATZHALTER: Hosting-Anbieter mit Anschrift]')} betrieben. Beim Aufruf der Seite verarbeitet der Hoster technisch notwendige Daten in Server-Logdateien, insbesondere IP-Adresse, Datum und Uhrzeit, aufgerufene Seite, übertragene Datenmenge sowie Browser- und Betriebssystemangaben. Das ist nötig, um die Seite auszuliefern und sicher zu betreiben. Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an einer sicheren und fehlerfreien Bereitstellung). Die Logdaten werden nach kurzer Zeit gelöscht; soweit erforderlich, besteht mit dem Hoster ein Vertrag zur Auftragsverarbeitung nach Art. 28 DSGVO.</p>`
+    + (contact.domain ? `
+    <p>Die Domain ${esc(contact.domain)} wird bei Squarespace (Squarespace Ireland Limited, Le Pole House, Ship Street Great, Dublin 8, Irland) verwaltet. Der Domain- und DNS-Dienst verarbeitet technisch notwendige Daten, damit die Adresse der Seite aufgelöst werden kann (z. B. IP-Adresse bei DNS-Anfragen). Es werden dabei keine Inhalte dieser Seite an Squarespace übertragen. Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO.</p>` : '');
 
   const whatsapp = showWa ? `    <p>Schreiben Sie uns über WhatsApp, wird der Dienst von WhatsApp Ireland Limited (Irland) bzw. der Meta-Unternehmensgruppe betrieben. Inhalte von Nachrichten sind Ende-zu-Ende-verschlüsselt; Metadaten (z. B. Telefonnummer, Zeitpunkt der Nachricht) verarbeitet WhatsApp nach der eigenen Datenschutzerklärung, wobei eine Übermittlung in Drittländer wie die USA möglich ist. Die Nutzung von WhatsApp ist freiwillig – Sie können uns jederzeit auch per ${contact.mail ? 'E-Mail' : 'Telefon'} erreichen.</p>
 ` : '';

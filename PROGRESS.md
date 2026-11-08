@@ -41,7 +41,15 @@ rewriting the list.
 - [ ] 8. Accessibility: alt text, contrast, `prefers-reduced-motion`
 - [ ] 9. Deploy — only on explicit instruction
 
-## Decisions log (append-only, newest first)
+## Decisions log (append-only, newest first)
+
+- 2026-11-08 — Domain **mischka-odenwald.de** is owned via Squarespace (domain only, no site).
+  New text-file key `Domain:`; the Impressum/Datenschutz show it as "Website" and Datenschutz §3
+  has a paragraph on Squarespace as domain/DNS provider (Squarespace Ireland Limited address
+  from my knowledge — verify). **Hosting is still undecided** (placeholder remains); proposed
+  GitHub Pages deploy from the existing workflow + DNS records at Squarespace — waiting for the
+  human's go before changing the workflow or DNS. Once hosting is fixed: fill `Hoster:` /
+  `Hoster Anschrift:`, then consider canonical/hreflang/Open Graph tags with the domain.
 
 - 2026-11-08 — Branch renamed `master` → `main`. Remote `origin` =
   https://github.com/rundrelektrotechnik/mischka_odenwald (**public**). Added `README.md`
