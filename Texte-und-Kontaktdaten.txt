@@ -29,8 +29,8 @@ Facebook-Link: https://www.facebook.com/mischka.odenwald
 
 [Webseite]
 # Erscheint im Browser-Tab und bei Google.
-Titel Deutsch: Mischka Odenwald – der tanzende Bär für Ihre Feier
-Titel Russisch: Мишка Оденвальд – танцующий медведь на ваш праздник
+Titel Deutsch: mischka_odenwald – der tanzende Bär für Ihre Feier
+Titel Russisch: mischka_odenwald – танцующий медведь на ваш праздник
 Beschreibung Deutsch: Mischka Odenwald: tanzender Bär, Ballonfiguren und Mitmach-Spaß für Kinder- und Geburtstagsfeiern.
 Beschreibung Russisch: Мишка Оденвальд: танцующий медведь, фигурки из воздушных шаров и весёлые игры для детских и семейных праздников.
 
