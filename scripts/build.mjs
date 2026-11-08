@@ -115,7 +115,7 @@ function mainPage(lang) {
   const orbs = figs.map((s, k) => {
     const img = raw(s, 'Bild');
     if (!existsSync(join(root, 'assets', 'img', img))) fail(`[${s}] "Bild: ${img}" – diese Datei gibt es nicht im Ordner assets/img.`);
-    return { id: `fig-${k + 1}`, center: raw(s, 'Position').toLowerCase() === 'mitte', img, name: tx(s, 'Name', lang), text: tx(s, 'Text', lang) };
+    return { id: `fig-${k + 1}`, center: (data[s].Position || '').toLowerCase() === 'mitte', img, name: tx(s, 'Name', lang), text: tx(s, 'Text', lang) };
   });
   const arcOrbs = orbs.filter((o) => !o.center);
   if (!arcOrbs.length) fail('Mindestens eine Figur muss im Halbkreis stehen (ohne "Position: Mitte").');
@@ -149,25 +149,47 @@ function mainPage(lang) {
 
 // ---- legal pages (German only; only the address data comes from the text file) -
 function legalVars() {
+  // "Kleinunternehmen/Kleinunternehmer" is a tax status (§ 19 UStG), not a legal form: it goes to the
+  // VAT section, not to the Rechtsform line.
+  const small = /kleinunternehmer|kleinunternehmen/i.test(contact.rechtsform);
   const addr = [contact.firma ? esc(contact.firma) : PH('[PLATZHALTER: Name / Firma]')];
   if (contact.inhaber) addr.push(`Inhaber/in: ${esc(contact.inhaber)}`);
   addr.push(orPH(contact.strasse, 'Straße und Hausnummer'), orPH(contact.ort, 'PLZ Ort'));
-  if (contact.rechtsform) addr.push(`Rechtsform: ${esc(contact.rechtsform)}`);
-  const lines = `E-Mail: ${orPH(contact.mail, 'E-Mail-Adresse')}<br>\n      Telefon: ${orPH(contact.tel, 'Telefonnummer')}`;
+  if (contact.rechtsform && !small) addr.push(`Rechtsform: ${esc(contact.rechtsform)}`);
+  const lines = `E-Mail: ${orPH(contact.mail, 'E-Mail-Adresse')}<br>
+      Telefon: ${orPH(contact.tel, 'Telefonnummer')}`;
   const de = (a) => (a.length > 1 ? a.slice(0, -1).join(', ') + ' und ' + a[a.length - 1] : a[0] || '');
   const deOr = (a) => (a.length > 1 ? a.slice(0, -1).join(', ') + ' oder ' + a[a.length - 1] : a[0] || '');
   const channels = [contact.mail && 'E-Mail', contact.tel && 'Telefon', showWa && 'WhatsApp'].filter(Boolean);
   const nets = [contact.ig && 'Instagram', contact.fb && 'Facebook', showWa && 'WhatsApp'].filter(Boolean);
-  const socialSection = nets.length ? `    <h2>Links zu sozialen Netzwerken und Messengern</h2>
-    <p>Die Seite verlinkt auf ${de(nets)}. Es werden keine Inhalte dieser Dienste eingebunden; Daten werden erst übertragen, wenn Sie einen Link anklicken und die jeweilige Seite bzw. App öffnen. Dort gelten die Datenschutzbestimmungen des Anbieters.
-      <span class="placeholder">[Rechtlich prüfen lassen]</span></p>
+
+  const vat = small
+    ? `
+    <h2>Umsatzsteuer</h2>
+    <p>Kleinunternehmer im Sinne von § 19 UStG: Es wird keine Umsatzsteuer berechnet und ausgewiesen. Eine Umsatzsteuer-Identifikationsnummer besteht nicht.</p>
+`
+    : `
+    <p class="note">${PH('[PLATZHALTER: ggf. Umsatzsteuer-ID bzw. Hinweis zur Kleinunternehmerregelung – nur falls zutreffend]')}</p>
+`;
+
+  const hoster = raw(K, 'Hoster'); const hosterAdr = raw(K, 'Hoster Anschrift');
+  if (!hoster) warn('Der Hoster (Firma, bei der die Seite liegt) fehlt – in der Datenschutzerklärung steht ein [PLATZHALTER].');
+  const hosting = `    <p>Diese Seite wird bei ${hoster ? esc(hoster) + (hosterAdr ? ' (' + esc(hosterAdr) + ')' : '') : PH('[PLATZHALTER: Hosting-Anbieter mit Anschrift]')} betrieben. Beim Aufruf der Seite verarbeitet der Hoster technisch notwendige Daten in Server-Logdateien, insbesondere IP-Adresse, Datum und Uhrzeit, aufgerufene Seite, übertragene Datenmenge sowie Browser- und Betriebssystemangaben. Das ist nötig, um die Seite auszuliefern und sicher zu betreiben. Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an einer sicheren und fehlerfreien Bereitstellung). Die Logdaten werden nach kurzer Zeit gelöscht; soweit erforderlich, besteht mit dem Hoster ein Vertrag zur Auftragsverarbeitung nach Art. 28 DSGVO.</p>`;
+
+  const whatsapp = showWa ? `    <p>Schreiben Sie uns über WhatsApp, wird der Dienst von WhatsApp Ireland Limited (Irland) bzw. der Meta-Unternehmensgruppe betrieben. Inhalte von Nachrichten sind Ende-zu-Ende-verschlüsselt; Metadaten (z. B. Telefonnummer, Zeitpunkt der Nachricht) verarbeitet WhatsApp nach der eigenen Datenschutzerklärung, wobei eine Übermittlung in Drittländer wie die USA möglich ist. Die Nutzung von WhatsApp ist freiwillig – Sie können uns jederzeit auch per ${contact.mail ? 'E-Mail' : 'Telefon'} erreichen.</p>
 ` : '';
+
+  const social = nets.length ? `    <h2>6. Links zu sozialen Netzwerken und Messengern</h2>
+    <p>Die Seite verlinkt auf ${de(nets)}. Es werden keine Inhalte dieser Dienste eingebunden und keine Plug-ins geladen; Daten werden erst an den jeweiligen Anbieter übertragen, wenn Sie einen Link anklicken und die Seite bzw. App öffnen. Ab dann gelten die Datenschutzbestimmungen des jeweiligen Anbieters.</p>
+` : '';
+
   return {
-    channels: deOr(channels), social_section: socialSection,
+    channels: deOr(channels), social_section: social, whatsapp_section: whatsapp, hosting, vat_section: vat,
+    n_cookies: 5, n_rights: nets.length ? 7 : 6,
     imprint_address: `    <p>\n      ${addr.join('<br>\n      ')}\n    </p>`,
     imprint_contact: `    <p>\n      ${lines}\n    </p>`,
     site_name: esc(raw('Webseite', 'Name')),
-    controller: `<p>\n      ${addr.join('<br>\n      ')}<br>\n      ${lines}\n    </p>`,
+    controller: `    <p>\n      ${addr.join('<br>\n      ')}<br>\n      ${lines}\n    </p>`,
   };
 }
 

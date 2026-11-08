@@ -26,6 +26,9 @@ WhatsApp anzeigen: ja
 E-Mail: mischka.odenwald@mail.de
 Instagram-Link: https://www.instagram.com/mischka_odenwald
 Facebook-Link: https://www.facebook.com/mischka.odenwald
+# Wo die Seite liegt (Hosting-Firma, z. B. Strato) – steht in der Datenschutzerklärung. Noch offen:
+Hoster:
+Hoster Anschrift:
 
 
 [Webseite]

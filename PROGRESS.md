@@ -43,6 +43,18 @@ rewriting the list.
 
 ## Decisions log (append-only, newest first)
 
+- 2026-11-08 — **Legal pages completed (standard texts, not lawyer-reviewed).** Impressum: § 5 DDG
+  address block, contact, **Umsatzsteuer = Kleinunternehmer § 19 UStG** (confirmed by the human;
+  "Kleinunternehmen" in the text file is treated as a tax status, so no "Rechtsform:" line is
+  printed for it), Verbraucherstreitbeilegung ("nicht bereit/verpflichtet" — assumption, confirm),
+  Haftung für Inhalte/Links, Urheberrecht. Datenschutz: Verantwortliche, Allgemeines, Hosting +
+  Server-Logs, Kontaktaufnahme (channels from the data), WhatsApp paragraph (only if shown),
+  no cookies/analytics/external resources, social-links section (only networks shown), Rechte +
+  Aufsichtsbehörde Hessen (HBDI). "Entwurf" banners removed. **Only open placeholder:** the
+  hosting provider — new text-file keys `Hoster:` and `Hoster Anschrift:` (fill when the
+  upload target is decided; until then a visible [PLATZHALTER] stays in Datenschutz §3). Keep
+  Datenschutz true if cookies, fonts, analytics or a form are ever added.
+
 - 2026-11-08 — Balloon bouquet orb **hidden for now** until the customer supplies a proper
   cut-out: `[Figur 8]` in the text file has `Anzeigen: nein` (any figure block supports it;
   "ja"/delete the line to show). Block and image stay in place. Impressum/Datenschutz re-checked
